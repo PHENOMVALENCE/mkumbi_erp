@@ -1,0 +1,239 @@
+[17-Dec-2025 16:37:51 Africa/Dar_es_Salaam] POST DATA: Array
+(
+    [to_account_id] => 2
+    [customer_id] => 1
+    [project_id] => 4
+    [plot_id] => 13
+    [reservation_date] => 2025-12-17
+    [total_amount] => 15480000.00
+    [discount_percentage] => 0
+    [discount_amount] => 0.00
+    [title_holder_name] => 
+    [down_payment] => 4500000
+    [payment_periods] => 20
+    [installment_amount] => 549000.00
+    [payment_date] => 2025-12-17
+    [payment_method] => bank_transfer
+    [transaction_reference] => 
+    [received_by] => 
+    [client_bank_name] => CRDB Bank
+    [client_account_number] => 01526772009
+    [client_account_name] => lazaro mpuya
+    [depositor_name] => 
+    [deposit_bank] => 
+    [deposit_account] => 
+    [mobile_money_provider] => 
+    [mobile_money_number] => 
+    [mobile_money_name] => 
+    [cheque_number] => 
+    [cheque_date] => 
+    [cheque_bank] => 
+    [cheque_branch] => 
+    [cheque_payee] => 
+)
+
+[17-Dec-2025 16:37:51 Africa/Dar_es_Salaam] SELECTED ACCOUNT ID: 2
+[17-Dec-2025 16:37:51 Africa/Dar_es_Salaam] PAYMENT INSERTED WITH ID: 13 AND ACCOUNT: 2
+[17-Dec-2025 17:18:01 Africa/Dar_es_Salaam] POST DATA: Array
+(
+    [to_account_id] => 3
+    [customer_id] => 1
+    [project_id] => 4
+    [plot_id] => 11
+    [reservation_date] => 2025-12-17
+    [total_amount] => 13800000.00
+    [discount_percentage] => 0
+    [discount_amount] => 0.00
+    [title_holder_name] => 
+    [down_payment] => 2000000
+    [payment_periods] => 20
+    [installment_amount] => 590000.00
+    [payment_date] => 2025-12-17
+    [payment_method] => mobile_money
+    [transaction_reference] => 
+    [received_by] => 
+    [client_bank_name] => 
+    [client_account_number] => 
+    [client_account_name] => 
+    [depositor_name] => 
+    [deposit_bank] => 
+    [deposit_account] => 
+    [mobile_money_provider] => Tigo Pesa
+    [mobile_money_number] => 0766477444
+    [mobile_money_name] => jane john
+    [cheque_number] => 
+    [cheque_date] => 
+    [cheque_bank] => 
+    [cheque_branch] => 
+    [cheque_payee] => 
+)
+
+[17-Dec-2025 17:18:01 Africa/Dar_es_Salaam] SELECTED ACCOUNT ID: 3
+[17-Dec-2025 17:18:01 Africa/Dar_es_Salaam] PAYMENT INSERTED WITH ID: 14 AND ACCOUNT: 3
+[18-Dec-2025 11:03:18 Africa/Dar_es_Salaam] POST DATA: Array
+(
+    [to_account_id] => 4
+    [customer_id] => 1
+    [project_id] => 14
+    [plot_id] => 44
+    [reservation_date] => 2025-12-18
+    [total_amount] => 4800000.00
+    [discount_percentage] => 0
+    [discount_amount] => 0.00
+    [title_holder_name] => 
+    [down_payment] => 0600000
+    [payment_periods] => 20
+    [installment_amount] => 210000.00
+    [payment_date] => 2025-12-18
+    [payment_method] => bank_transfer
+    [transaction_reference] => 
+    [received_by] => 
+    [client_bank_name] => CRDB Bank
+    [client_account_number] => 01526772009
+    [client_account_name] => lazaro mpuya
+    [depositor_name] => 
+    [deposit_bank] => 
+    [deposit_account] => 
+    [mobile_money_provider] => 
+    [mobile_money_number] => 
+    [mobile_money_name] => 
+    [cheque_number] => 
+    [cheque_date] => 
+    [cheque_bank] => 
+    [cheque_branch] => 
+    [cheque_payee] => 
+)
+
+[18-Dec-2025 11:03:18 Africa/Dar_es_Salaam] SELECTED ACCOUNT ID: 4
+[18-Dec-2025 11:03:18 Africa/Dar_es_Salaam] PAYMENT INSERTED WITH ID: 15 AND ACCOUNT: 4
+[18-Dec-2025 13:57:21 Africa/Dar_es_Salaam] POST DATA: Array
+(
+    [to_account_id] => 7
+    [customer_id] => 1
+    [project_id] => 4
+    [plot_id] => 25
+    [reservation_date] => 2025-12-18
+    [total_amount] => 21140000.00
+    [discount_percentage] => 0
+    [discount_amount] => 0.00
+    [title_holder_name] => LAZARO MPUYA MATALANGE
+    [down_payment] => 500000
+    [payment_periods] => 29
+    [installment_amount] => 711724.14
+    [payment_date] => 2025-11-26
+    [payment_method] => bank_transfer
+    [transaction_reference] => 
+    [received_by] => 
+    [client_bank_name] => 
+    [client_account_number] => 
+    [client_account_name] => 
+    [depositor_name] => 
+    [deposit_bank] => 
+    [deposit_account] => 
+    [mobile_money_provider] => 
+    [mobile_money_number] => 
+    [mobile_money_name] => 
+    [cheque_number] => 
+    [cheque_date] => 
+    [cheque_bank] => 
+    [cheque_branch] => 
+    [cheque_payee] => 
+)
+
+[18-Dec-2025 13:57:21 Africa/Dar_es_Salaam] SELECTED ACCOUNT ID: 7
+[18-Dec-2025 13:57:21 Africa/Dar_es_Salaam] PAYMENT INSERTED WITH ID: 16 AND ACCOUNT: 7
+[19-Dec-2025 13:23:30 Africa/Dar_es_Salaam] POST DATA: Array
+(
+    [to_account_id] => 7
+    [customer_id] => 3
+    [project_id] => 16
+    [plot_id] => 167
+    [reservation_date] => 2025-12-19
+    [total_amount] => 7520000.00
+    [discount_percentage] => 0
+    [discount_amount] => 0.00
+    [title_holder_name] => 
+    [down_payment] => 313400
+    [payment_periods] => 23
+    [installment_amount] => 313330.43
+    [payment_date] => 2025-12-19
+    [payment_method] => bank_deposit
+    [transaction_reference] => 19b35c96883ecb3d
+    [received_by] => 
+    [client_bank_name] => 
+    [client_account_number] => 
+    [client_account_name] => 
+    [depositor_name] => Carolina Robert Mganga
+    [deposit_bank] => CRDB BANK
+    [deposit_account] => 1
+    [mobile_money_provider] => 
+    [mobile_money_number] => 
+    [mobile_money_name] => 
+    [cheque_number] => 
+    [cheque_date] => 
+    [cheque_bank] => 
+    [cheque_branch] => 
+    [cheque_payee] => 
+)
+
+[19-Dec-2025 13:23:30 Africa/Dar_es_Salaam] SELECTED ACCOUNT ID: 7
+[19-Dec-2025 13:23:30 Africa/Dar_es_Salaam] PAYMENT INSERTED WITH ID: 17 AND ACCOUNT: 7
+[22-Dec-2025 11:33:34 Africa/Dar_es_Salaam] Error fetching templates: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.contract_template_id' in 'WHERE'
+[22-Dec-2025 11:34:21 Africa/Dar_es_Salaam] Template action error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'template_type' in 'INSERT INTO'
+[22-Dec-2025 11:34:21 Africa/Dar_es_Salaam] Error fetching templates: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.contract_template_id' in 'WHERE'
+[22-Dec-2025 11:37:11 Africa/Dar_es_Salaam] Template action error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'template_type' in 'INSERT INTO'
+[22-Dec-2025 11:47:40 Africa/Dar_es_Salaam] Template action error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'template_type' in 'INSERT INTO'
+[22-Dec-2025 11:47:40 Africa/Dar_es_Salaam] Template action error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'template_type' in 'INSERT INTO'
+[22-Dec-2025 11:56:46 Africa/Dar_es_Salaam] Template action error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'description' in 'INSERT INTO'
+[22-Dec-2025 12:30:10 Africa/Dar_es_Salaam] Template action error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'description' in 'INSERT INTO'
+[22-Dec-2025 12:46:06 Africa/Dar_es_Salaam] Error fetching reservation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.id_type' in 'SELECT'
+[22-Dec-2025 12:48:30 Africa/Dar_es_Salaam] Error fetching reservation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.id_type' in 'SELECT'
+[22-Dec-2025 13:07:08 Africa/Dar_es_Salaam] Error fetching reservation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.id_type' in 'SELECT'
+[22-Dec-2025 13:13:54 Africa/Dar_es_Salaam] Error fetching reservation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.id_type' in 'SELECT'
+[22-Dec-2025 13:21:48 Africa/Dar_es_Salaam] Error fetching contract: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.approved_by' in 'ON'
+[22-Dec-2025 13:35:49 Africa/Dar_es_Salaam] Error fetching contract: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.approved_by' in 'ON'
+[22-Dec-2025 13:35:53 Africa/Dar_es_Salaam] Error fetching contract: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.approved_by' in 'ON'
+[22-Dec-2025 13:50:54 Africa/Dar_es_Salaam] Error fetching contract: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.approved_by' in 'ON'
+[22-Dec-2025 16:58:16 Africa/Dar_es_Salaam] Error fetching contract: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.approved_by' in 'ON'
+[23-Dec-2025 11:42:00 Africa/Dar_es_Salaam] DATABASE ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[23-Dec-2025 16:37:34 Africa/Dar_es_Salaam] POST DATA: Array
+(
+    [to_account_id] => 6
+    [customer_id] => 4
+    [project_id] => 15
+    [plot_id] => 158
+    [reservation_date] => 2022-11-08
+    [total_amount] => 1890000.00
+    [discount_percentage] => 0
+    [discount_amount] => 0.00
+    [title_holder_name] => 
+    [down_payment] => 1890000
+    [payment_periods] => 1
+    [installment_amount] => 0.00
+    [payment_date] => 2025-12-23
+    [payment_method] => bank_deposit
+    [transaction_reference] => 
+    [received_by] => 
+    [client_bank_name] => 
+    [client_account_number] => 
+    [client_account_name] => 
+    [depositor_name] => Upendo Rogers msuya
+    [deposit_bank] => 
+    [deposit_account] => 1
+    [mobile_money_provider] => 
+    [mobile_money_number] => 
+    [mobile_money_name] => 
+    [cheque_number] => 
+    [cheque_date] => 
+    [cheque_bank] => 
+    [cheque_branch] => 
+    [cheque_payee] => 
+)
+
+[23-Dec-2025 16:37:34 Africa/Dar_es_Salaam] SELECTED ACCOUNT ID: 6
+[23-Dec-2025 16:37:34 Africa/Dar_es_Salaam] PAYMENT INSERTED WITH ID: 18 AND ACCOUNT: 6
+[24-Dec-2025 09:38:40 Africa/Dar_es_Salaam] Error fetching contract: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.approved_by' in 'ON'
+[25-Dec-2025 21:12:32 Africa/Dar_es_Salaam] Error fetching contract: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.approved_by' in 'ON'
+[28-Dec-2025 10:24:17 Africa/Dar_es_Salaam] DATABASE ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[28-Dec-2025 10:34:08 Africa/Dar_es_Salaam] DATABASE ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'changed_by' in 'INSERT INTO'
+[28-Dec-2025 10:37:46 Africa/Dar_es_Salaam] DATABASE ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null

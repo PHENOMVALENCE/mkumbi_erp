@@ -1,0 +1,7 @@
+[18-Dec-2025 15:50:32 Africa/Dar_es_Salaam] Error fetching payment: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.location' in 'SELECT'
+[18-Dec-2025 15:50:37 Africa/Dar_es_Salaam] Error fetching payment: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.location' in 'SELECT'
+[18-Dec-2025 15:55:05 Africa/Dar_es_Salaam] Error fetching payment: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.location' in 'SELECT'
+[18-Dec-2025 16:00:36 Africa/Dar_es_Salaam] Error fetching payment: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.location' in 'SELECT'
+[18-Dec-2025 16:01:14 Africa/Dar_es_Salaam] Error fetching payment: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.location' in 'SELECT'
+[18-Dec-2025 16:28:13 Africa/Dar_es_Salaam] Error fetching payment: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.location' in 'SELECT'
+[18-Dec-2025 16:28:16 Africa/Dar_es_Salaam] Error fetching payment: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.location' in 'SELECT'

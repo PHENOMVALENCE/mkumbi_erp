@@ -1,0 +1,292 @@
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 1133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'service_fee' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nhif' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 2134: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 3110: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'share_capital' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 3120: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'retained_earnings' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 4121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'service_type' in 'WHERE'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 4122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'service_type' in 'WHERE'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 4123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'service_type' in 'WHERE'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 4124: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'service_type' in 'WHERE'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_amount' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 5121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cost_incurred' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 5122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cost_incurred' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 5123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cost_incurred' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 5124: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cost_incurred' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 5125: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cost_incurred' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 5126: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cost_incurred' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 5128: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cost_incurred' in 'SELECT'
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6140: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6150: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6310: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6320: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6410: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:25 Africa/Dar_es_Salaam] Skipping account 6420: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 6430: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 6500: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 6600: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 7200: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'estimated_cost' in 'SELECT'
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 8100: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 8200: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'charges' in 'SELECT'
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 9200: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 9300: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 9510: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[23-Dec-2025 03:25:26 Africa/Dar_es_Salaam] Skipping account 9520: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 04:47:01 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'SELECT'
+[24-Dec-2025 04:47:01 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'SELECT'
+[24-Dec-2025 04:47:01 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'SELECT'
+[24-Dec-2025 04:47:01 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[24-Dec-2025 04:47:01 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[24-Dec-2025 04:47:01 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_down_payment' in 'WHERE'
+[24-Dec-2025 04:47:01 Africa/Dar_es_Salaam] Error updating account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_down_payment' in 'WHERE'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_down_payment' in 'WHERE'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_down_payment' in 'WHERE'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L4 account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 3110: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.share_capital' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 3120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.retained_earnings' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 5110: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.land_purchases' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 04:55:44 Africa/Dar_es_Salaam] Error updating L3 account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_amount' in 'SELECT'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 1250: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.depreciation' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 3110: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 3120: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_down_payment' in 'WHERE'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_down_payment' in 'WHERE'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[24-Dec-2025 05:02:32 Africa/Dar_es_Salaam] Error updating account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 1250: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.depreciation' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 3110: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 3120: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_down_payment' in 'WHERE'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[24-Dec-2025 05:13:16 Africa/Dar_es_Salaam] Error updating account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 1250: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.depreciation' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 3110: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 3120: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 4110: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 4113: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 5110: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[24-Dec-2025 05:15:31 Africa/Dar_es_Salaam] Error updating account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 1250: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.depreciation' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 3110: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 3120: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 4110: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 4113: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 5110: SQLSTATE[HY093]: Invalid parameter number
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[24-Dec-2025 16:18:18 Africa/Dar_es_Salaam] Error updating account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 1250: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.depreciation' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 3110: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 3120: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 4110: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 4113: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 5110: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[25-Dec-2025 22:29:48 Africa/Dar_es_Salaam] Error updating account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 1250: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.depreciation' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 3110: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 3120: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 4110: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 4113: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 5110: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[25-Dec-2025 22:32:17 Africa/Dar_es_Salaam] Error updating account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 1250: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.depreciation' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 3110: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 3120: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 4110: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 4113: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 5110: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[25-Dec-2025 22:32:21 Africa/Dar_es_Salaam] Error updating account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 1131: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount_due' in 'SELECT'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 1220: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.vehicles' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 1230: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.equipment' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 1250: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.depreciation' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 1330: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_expenses' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 2121: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 2122: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 2123: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 2132: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.nssf_employee' in 'SELECT'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 2133: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pd.paye' in 'SELECT'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 2210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.loans' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 3110: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 3120: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 4110: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 4111: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 4112: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 4113: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_amount' in 'SELECT'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 4210: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'interest_earned' in 'SELECT'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 5110: SQLSTATE[HY093]: Invalid parameter number
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 5121: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 5122: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 5123: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 6120: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 6130: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 6210: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 6300: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.expenses' doesn't exist
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 8100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[25-Dec-2025 22:32:22 Africa/Dar_es_Salaam] Error updating account 9100: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_type' in 'WHERE'

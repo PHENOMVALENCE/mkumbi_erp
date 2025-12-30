@@ -1,0 +1,7 @@
+[25-Dec-2025 22:07:49 Africa/Dar_es_Salaam] Stats error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'company_id' in 'WHERE'
+[25-Dec-2025 22:07:49 Africa/Dar_es_Salaam] Custodians fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.custodian_id' in 'ON'
+[25-Dec-2025 22:07:49 Africa/Dar_es_Salaam] Categories fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.petty_cash_categories' doesn't exist
+[25-Dec-2025 22:07:49 Africa/Dar_es_Salaam] Transactions fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.petty_cash_categories' doesn't exist
+[25-Dec-2025 22:11:08 Africa/Dar_es_Salaam] Categories fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.petty_cash_categories' doesn't exist
+[25-Dec-2025 22:13:49 Africa/Dar_es_Salaam] Petty cash add error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reference_number' in 'SELECT'
+[25-Dec-2025 22:13:49 Africa/Dar_es_Salaam] Categories fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.petty_cash_categories' doesn't exist

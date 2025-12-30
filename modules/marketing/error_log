@@ -1,0 +1,31 @@
+[26-Dec-2025 08:51:57 Africa/Dar_es_Salaam] DEBUG: Found quotation: QT-2025-0001
+[26-Dec-2025 08:51:57 Africa/Dar_es_Salaam] DEBUG: Quotations table columns: quotation_id, company_id, quotation_number, quotation_date, valid_until_date, customer_id, lead_id, quote_date, valid_until, subtotal, tax_amount, discount_amount, total_amount, payment_terms, delivery_terms, status, is_active, terms_conditions, notes, created_at, updated_at, created_by
+[26-Dec-2025 08:51:57 Africa/Dar_es_Salaam] DEBUG: Quotation_items columns: quotation_item_id, quotation_id, description, item_id, item_description, quantity, unit, unit_price, total_price, details, line_total, created_at
+[26-Dec-2025 08:51:57 Africa/Dar_es_Salaam] DEBUG: Successfully loaded quotation: Array
+(
+    [quotation_id] => 1
+    [company_id] => 3
+    [quotation_number] => QT-2025-0001
+    [quotation_date] => 2025-12-26
+    [valid_until_date] => 2026-01-25
+    [customer_id] => 31
+    [lead_id] => 
+    [quote_date] => 2025-12-26
+    [valid_until] => 2026-01-25
+    [subtotal] => 11325000.00
+    [tax_amount] => 2038500.00
+    [discount_amount] => 0.00
+    [total_amount] => 13363500.00
+    [payment_terms] => 40% downpayment
+24 month installations
+    [delivery_terms] => title deed
+    [status] => draft
+    [is_active] => 1
+    [terms_conditions] => 
+    [notes] => 
+    [created_at] => 2025-12-26 11:21:39
+    [updated_at] => 2025-12-26 11:21:39
+    [created_by] => 9
+)
+
+[26-Dec-2025 08:51:57 Africa/Dar_es_Salaam] DEBUG: Found 2 items for quotation 1

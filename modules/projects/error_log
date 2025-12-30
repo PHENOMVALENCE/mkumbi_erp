@@ -1,0 +1,65 @@
+[18-Dec-2025 09:06:32 Africa/Dar_es_Salaam] Error updating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_by' in 'SET'
+[18-Dec-2025 09:08:44 Africa/Dar_es_Salaam] Error updating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_by' in 'SET'
+[18-Dec-2025 10:05:54 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:13:48 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:17:16 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:18:57 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:21:07 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:09 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:15 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:16 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:18 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:18 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:20 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:23 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:23 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:23 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:23 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:23 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:23 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:23 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:23 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:40 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:25:36 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:27:55 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:28:16 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:29:43 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[19-Dec-2025 15:12:14 Africa/Dar_es_Salaam] Error creating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'INSERT INTO'
+[19-Dec-2025 15:13:45 Africa/Dar_es_Salaam] Error creating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'INSERT INTO'
+[19-Dec-2025 15:15:04 Africa/Dar_es_Salaam] Error creating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'INSERT INTO'
+[19-Dec-2025 15:16:21 Africa/Dar_es_Salaam] Error creating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'INSERT INTO'
+[19-Dec-2025 15:16:53 Africa/Dar_es_Salaam] Error creating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'INSERT INTO'
+[19-Dec-2025 15:35:22 Africa/Dar_es_Salaam] Error creating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'INSERT INTO'
+[19-Dec-2025 15:56:27 Africa/Dar_es_Salaam] Error creating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'INSERT INTO'
+[19-Dec-2025 15:59:12 Africa/Dar_es_Salaam] Error creating project: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'INSERT INTO'
+[21-Dec-2025 12:06:48 Africa/Dar_es_Salaam] Creditor operation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'address' in 'INSERT INTO'
+[22-Dec-2025 08:13:04 Africa/Dar_es_Salaam] Creditor operation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'address' in 'INSERT INTO'
+[22-Dec-2025 08:13:04 Africa/Dar_es_Salaam] Creditor operation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'address' in 'INSERT INTO'
+[22-Dec-2025 08:16:06 Africa/Dar_es_Salaam] Creditor operation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_by' in 'INSERT INTO'
+[22-Dec-2025 08:57:49 Africa/Dar_es_Salaam] Payment operation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'requested_by' in 'INSERT INTO'
+[22-Dec-2025 15:26:43 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:33:08 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:33:25 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:33:27 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:35:47 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:41:00 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:45:37 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:47:32 Africa/Dar_es_Salaam] Error fetching project creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:48:24 Africa/Dar_es_Salaam] Error fetching project creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:49:49 Africa/Dar_es_Salaam] Error fetching project creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:50:06 Africa/Dar_es_Salaam] Error fetching project creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:50:18 Africa/Dar_es_Salaam] Creditors query failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:54:52 Africa/Dar_es_Salaam] Creditors error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 15:58:32 Africa/Dar_es_Salaam] Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 16:03:47 Africa/Dar_es_Salaam] Creditors error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 16:04:14 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 16:05:34 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 16:08:55 Africa/Dar_es_Salaam] Creditors error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 16:15:37 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 16:18:03 Africa/Dar_es_Salaam] Creditors error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.project_statements' doesn't exist
+[22-Dec-2025 16:20:03 Africa/Dar_es_Salaam] Error fetching creditors: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ps.seller_email' in 'SELECT'
+[22-Dec-2025 16:24:35 Africa/Dar_es_Salaam] Sellers query error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pay.description' in 'WHERE'
+[22-Dec-2025 16:24:41 Africa/Dar_es_Salaam] Sellers query error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pay.description' in 'WHERE'
+[22-Dec-2025 16:26:00 Africa/Dar_es_Salaam] Sellers query error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.seller_id' in 'WHERE'
+[22-Dec-2025 16:26:09 Africa/Dar_es_Salaam] Sellers query error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.seller_id' in 'WHERE'
+[22-Dec-2025 16:28:55 Africa/Dar_es_Salaam] Creditors load error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'description' in 'WHERE'

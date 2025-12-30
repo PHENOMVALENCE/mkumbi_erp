@@ -1,0 +1,98 @@
+[17-Dec-2025 15:40:46 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIBAHA BOKOMNEMELA-2
+[18-Dec-2025 16:21:17 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project CHANIKA HOMBOZA
+[19-Dec-2025 12:24:36 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIBAHA BOKOMNEMELA-3
+[19-Dec-2025 12:39:43 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project MLANDIZI VIKURUTI
+[20-Dec-2025 11:11:24 Africa/Dar_es_Salaam] Error fetching plot: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.region' in 'SELECT'
+[20-Dec-2025 11:11:32 Africa/Dar_es_Salaam] Error fetching plot: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.region' in 'SELECT'
+[20-Dec-2025 11:20:56 Africa/Dar_es_Salaam] Plot View Debug - Plot ID from URL: 180
+[20-Dec-2025 11:20:56 Africa/Dar_es_Salaam] Plot View Debug - GET params: Array
+(
+    [id] => 180
+)
+
+[20-Dec-2025 11:20:56 Africa/Dar_es_Salaam] Plot View Debug - Company ID: 3
+[20-Dec-2025 11:20:56 Africa/Dar_es_Salaam] Error fetching plot: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.region' in 'SELECT'
+[20-Dec-2025 11:24:23 Africa/Dar_es_Salaam] Plot View Debug - Plot ID from URL: 180
+[20-Dec-2025 11:24:23 Africa/Dar_es_Salaam] Plot View Debug - GET params: Array
+(
+    [id] => 180
+)
+
+[20-Dec-2025 11:24:23 Africa/Dar_es_Salaam] Plot View Debug - Company ID: 3
+[20-Dec-2025 11:24:23 Africa/Dar_es_Salaam] Plot View Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'SELECT'
+[20-Dec-2025 11:24:27 Africa/Dar_es_Salaam] Plot View Debug - Plot ID from URL: 179
+[20-Dec-2025 11:24:27 Africa/Dar_es_Salaam] Plot View Debug - GET params: Array
+(
+    [id] => 179
+)
+
+[20-Dec-2025 11:24:27 Africa/Dar_es_Salaam] Plot View Debug - Company ID: 3
+[20-Dec-2025 11:24:27 Africa/Dar_es_Salaam] Plot View Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region' in 'SELECT'
+[20-Dec-2025 11:25:01 Africa/Dar_es_Salaam] Error fetching plot: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.region' in 'SELECT'
+[20-Dec-2025 11:25:04 Africa/Dar_es_Salaam] Error fetching plot: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.region' in 'SELECT'
+[20-Dec-2025 11:35:36 Africa/Dar_es_Salaam] Error fetching plot: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.region' in 'SELECT'
+[20-Dec-2025 11:35:44 Africa/Dar_es_Salaam] Error fetching plot: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pr.region' in 'SELECT'
+[22-Dec-2025 09:27:35 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:27:35 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 09:28:08 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:28:08 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.customer_name' in 'SELECT'
+[22-Dec-2025 09:28:10 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:28:10 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 09:28:11 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:28:11 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 09:28:25 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:28:25 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 09:32:11 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:32:11 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 09:32:16 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:32:16 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 09:32:21 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:32:21 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 09:37:20 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:37:20 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 09:41:42 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:43:42 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:43:46 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:47:31 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 09:47:31 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 10:38:52 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project MLANDIZI VIKURUTI - 2
+[22-Dec-2025 11:22:28 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIMBIJI GOLANI
+[22-Dec-2025 11:22:28 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIMBIJI GOLANI
+[22-Dec-2025 11:22:38 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIMBIJI GOLANI
+[22-Dec-2025 11:25:00 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIMBIJI GOLANI
+[22-Dec-2025 11:35:49 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 11:35:49 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 11:35:49 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 11:40:22 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 11:40:22 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 11:40:22 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 12:28:29 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 12:28:29 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 12:59:43 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 12:59:43 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 13:27:04 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 13:27:58 Africa/Dar_es_Salaam] Error updating plot: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[22-Dec-2025 16:46:28 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIBAHA BOKOMNEMELA-1
+[22-Dec-2025 17:22:11 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIGAMBONI DEGE
+[22-Dec-2025 17:29:57 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 17:29:57 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 17:43:54 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project KIMBIJI KWAMORIS
+[22-Dec-2025 18:30:55 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 18:30:55 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 18:31:13 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 18:31:13 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 18:32:36 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 18:32:40 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 18:32:43 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 18:32:43 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 21:26:34 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 21:26:34 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 21:27:10 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 21:27:10 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[22-Dec-2025 21:27:15 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[22-Dec-2025 21:27:15 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[23-Dec-2025 11:28:38 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[23-Dec-2025 11:28:38 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'
+[24-Dec-2025 15:18:07 Africa/Dar_es_Salaam] Plot creation will fully utilize remaining area for project BAGAMOYO UKUNI
+[25-Dec-2025 21:08:36 Africa/Dar_es_Salaam] Customers error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customer_name' in 'SELECT'
+[25-Dec-2025 21:08:36 Africa/Dar_es_Salaam] Data fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c1.customer_name' in 'SELECT'

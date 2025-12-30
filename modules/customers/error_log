@@ -1,0 +1,24 @@
+[15-Dec-2025 10:14:31 Africa/Dar_es_Salaam] Error creating customer: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'guardian1_phone' in 'INSERT INTO'
+[22-Dec-2025 10:23:27 Africa/Dar_es_Salaam] Error previewing statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'amount' in 'SELECT'
+[22-Dec-2025 11:02:32 Africa/Dar_es_Salaam] Reservations fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.deposit_amount' in 'SELECT'
+[22-Dec-2025 11:02:32 Africa/Dar_es_Salaam] Payments fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.notes' in 'SELECT'
+[22-Dec-2025 11:02:54 Africa/Dar_es_Salaam] Reservations fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.deposit_amount' in 'SELECT'
+[22-Dec-2025 11:02:54 Africa/Dar_es_Salaam] Payments fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.notes' in 'SELECT'
+[22-Dec-2025 11:09:52 Africa/Dar_es_Salaam] Reservations fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.deposit_amount' in 'SELECT'
+[22-Dec-2025 11:09:52 Africa/Dar_es_Salaam] Payments fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.notes' in 'SELECT'
+[22-Dec-2025 11:10:03 Africa/Dar_es_Salaam] Reservations fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.deposit_amount' in 'SELECT'
+[22-Dec-2025 11:10:03 Africa/Dar_es_Salaam] Payments fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.notes' in 'SELECT'
+[22-Dec-2025 11:10:33 Africa/Dar_es_Salaam] Reservations fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.deposit_amount' in 'SELECT'
+[22-Dec-2025 11:10:33 Africa/Dar_es_Salaam] Payments fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.notes' in 'SELECT'
+[22-Dec-2025 11:15:38 Africa/Dar_es_Salaam] Reservations fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.deposit_amount' in 'SELECT'
+[22-Dec-2025 11:15:38 Africa/Dar_es_Salaam] Payments fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.notes' in 'SELECT'
+[22-Dec-2025 11:15:38 Africa/Dar_es_Salaam] Customer ID: 1
+[22-Dec-2025 11:15:38 Africa/Dar_es_Salaam] Reservations count: 0
+[22-Dec-2025 11:15:38 Africa/Dar_es_Salaam] Total amount: 0
+[22-Dec-2025 11:15:38 Africa/Dar_es_Salaam] Total paid: 0
+[22-Dec-2025 11:15:51 Africa/Dar_es_Salaam] Reservations fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.deposit_amount' in 'SELECT'
+[22-Dec-2025 11:15:51 Africa/Dar_es_Salaam] Payments fetch error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.notes' in 'SELECT'
+[22-Dec-2025 11:15:51 Africa/Dar_es_Salaam] Customer ID: 3
+[22-Dec-2025 11:15:51 Africa/Dar_es_Salaam] Reservations count: 0
+[22-Dec-2025 11:15:51 Africa/Dar_es_Salaam] Total amount: 0
+[22-Dec-2025 11:15:51 Africa/Dar_es_Salaam] Total paid: 0

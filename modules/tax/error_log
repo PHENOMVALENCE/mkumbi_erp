@@ -1,0 +1,24 @@
+[12-Dec-2025 10:49:40 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[12-Dec-2025 10:49:56 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[17-Dec-2025 11:39:55 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[17-Dec-2025 12:01:52 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[17-Dec-2025 12:04:21 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[17-Dec-2025 12:13:20 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[17-Dec-2025 12:13:41 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[18-Dec-2025 14:47:41 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[18-Dec-2025 14:48:07 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[18-Dec-2025 14:48:31 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[18-Dec-2025 17:31:26 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[18-Dec-2025 17:31:49 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[21-Dec-2025 16:08:27 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[23-Dec-2025 12:11:24 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[23-Dec-2025 12:12:28 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[23-Dec-2025 12:12:36 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[25-Dec-2025 22:33:53 Africa/Dar_es_Salaam] Error fetching tax types: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'company_id' in WHERE is ambiguous
+[25-Dec-2025 22:39:51 Africa/Dar_es_Salaam] Tax types fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.transactions' doesn't exist
+[25-Dec-2025 22:40:22 Africa/Dar_es_Salaam] Tax types fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.transactions' doesn't exist
+[25-Dec-2025 22:43:17 Africa/Dar_es_Salaam] Tax type add error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_category' in 'INSERT INTO'
+[25-Dec-2025 22:47:14 Africa/Dar_es_Salaam] Tax type add error: Tax code already exists
+[25-Dec-2025 22:47:22 Africa/Dar_es_Salaam] Tax types fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.transactions' doesn't exist
+[25-Dec-2025 22:48:40 Africa/Dar_es_Salaam] Tax types fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.transactions' doesn't exist
+[25-Dec-2025 22:53:59 Africa/Dar_es_Salaam] Tax types fetch error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mkumbi_erp.transactions' doesn't exist

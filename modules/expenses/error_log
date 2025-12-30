@@ -1,0 +1,4 @@
+[17-Dec-2025 16:27:43 Africa/Dar_es_Salaam] Error fetching claims: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'e.full_name' in 'SELECT'
+[17-Dec-2025 16:27:43 Africa/Dar_es_Salaam] Error fetching employees: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'e.full_name' in 'SELECT'
+[17-Dec-2025 16:35:55 Africa/Dar_es_Salaam] Error fetching claims: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'e.full_name' in 'SELECT'
+[17-Dec-2025 16:35:55 Africa/Dar_es_Salaam] Error fetching employees: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'e.full_name' in 'SELECT'

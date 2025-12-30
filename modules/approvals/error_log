@@ -1,0 +1,15 @@
+[17-Dec-2025 17:10:31 Africa/Dar_es_Salaam] Error creating journal entry: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reference_type' in 'INSERT INTO'
+[17-Dec-2025 17:18:49 Africa/Dar_es_Salaam] Error creating journal entry: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reference_type' in 'INSERT INTO'
+[18-Dec-2025 10:06:54 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:07:07 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:23:57 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:28:25 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 10:42:11 Africa/Dar_es_Salaam] Error fetching costs: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pc.rejected_by' in 'WHERE'
+[18-Dec-2025 11:03:44 Africa/Dar_es_Salaam] Error creating journal entry: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reference_type' in 'INSERT INTO'
+[18-Dec-2025 13:57:53 Africa/Dar_es_Salaam] Error creating journal entry: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reference_type' in 'INSERT INTO'
+[19-Dec-2025 13:24:55 Africa/Dar_es_Salaam] Error creating journal entry: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reference_type' in 'INSERT INTO'
+[23-Dec-2025 16:44:27 Africa/Dar_es_Salaam] Approval error: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[23-Dec-2025 16:44:48 Africa/Dar_es_Salaam] Approval error: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[23-Dec-2025 16:44:49 Africa/Dar_es_Salaam] Approval error: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[23-Dec-2025 16:44:51 Africa/Dar_es_Salaam] Approval error: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
+[23-Dec-2025 16:45:40 Africa/Dar_es_Salaam] Approval error: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'changed_by' cannot be null
