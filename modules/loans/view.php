@@ -26,12 +26,12 @@ if (!$loan_id) {
     exit;
 }
 
-// Get loan details with employee info
-$sql = "SELECT el.*, COALESCE(lt.type_name, lt.loan_type_name) as loan_type_name, lt.interest_rate as type_rate, lt.requires_guarantor,
-               u.full_name, u.email as emp_email, e.employee_number, e.basic_salary,
+// Get loan details with employee info (matching exact schema)
+$sql = "SELECT el.*, lt.type_name as loan_type_name, lt.interest_rate as type_rate, lt.requires_guarantor,
+               u.full_name, u.email as emp_email, e.employee_number, e.basic_salary, e.user_id as emp_user_id,
                d.department_name, p.position_title,
                (SELECT u2.full_name FROM users u2 WHERE u2.user_id = el.approved_by) as approver_name,
-               (SELECT u3.full_name FROM users u3 WHERE u3.user_id = el.disbursed_by) as disburser_name
+               (SELECT u3.full_name FROM users u3 WHERE u3.user_id = el.created_by) as created_by_name
         FROM employee_loans el
         JOIN loan_types lt ON el.loan_type_id = lt.loan_type_id
         JOIN employees e ON el.employee_id = e.employee_id
@@ -76,17 +76,34 @@ $stmt = $conn->prepare($sql);
 $stmt->execute([$loan_id]);
 $payments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Get guarantors - Note: loan_guarantors table may not exist, check if needed
+// Get guarantors from guarantor1_id and guarantor2_id columns
 $guarantors = [];
-// Commented out as table may not exist in schema
-// $sql = "SELECT lg.*, u.full_name, e.employee_number
-//         FROM loan_guarantors lg
-//         JOIN employees e ON lg.guarantor_employee_id = e.employee_id
-//         JOIN users u ON e.user_id = u.user_id
-//         WHERE lg.loan_id = ?";
-// $stmt = $conn->prepare($sql);
-// $stmt->execute([$loan_id]);
-// $guarantors = $stmt->fetchAll(PDO::FETCH_ASSOC);
+if ($loan['guarantor1_id']) {
+    $sql = "SELECT e.employee_id, u.full_name, e.employee_number
+            FROM employees e
+            JOIN users u ON e.user_id = u.user_id
+            WHERE e.employee_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$loan['guarantor1_id']]);
+    $g1 = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($g1) {
+        $g1['guarantor_type'] = 'Primary Guarantor';
+        $guarantors[] = $g1;
+    }
+}
+if ($loan['guarantor2_id']) {
+    $sql = "SELECT e.employee_id, u.full_name, e.employee_number
+            FROM employees e
+            JOIN users u ON e.user_id = u.user_id
+            WHERE e.employee_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$loan['guarantor2_id']]);
+    $g2 = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($g2) {
+        $g2['guarantor_type'] = 'Secondary Guarantor';
+        $guarantors[] = $g2;
+    }
+}
 
 // Calculate summary
 $total_paid = array_sum(array_column($payments, 'total_paid'));
@@ -158,30 +175,45 @@ require_once '../../includes/header.php';
     .schedule-table .overdue { background: #f8d7da; }
 </style>
 
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><i class="fas fa-file-invoice-dollar me-2"></i>Loan Details</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="../../dashboard.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index.php">Loans</a></li>
-                        <li class="breadcrumb-item active">Details</li>
-                    </ol>
+<!-- Content Header -->
+<div class="content-header mb-4">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h1 class="m-0 fw-bold">
+                    <i class="fas fa-file-invoice-dollar text-primary me-2"></i>
+                    Loan Details
+                </h1>
+                <p class="text-muted small mb-0 mt-1">
+                    View loan information and repayment schedule
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                    <a href="index.php" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Back to Loans
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section class="content">
-        <div class="container-fluid">
-            
+<!-- Main Content -->
+<section class="content">
+    <div class="container-fluid">
             <?php if (isset($_SESSION['success_message'])): ?>
             <div class="alert alert-success alert-dismissible fade show">
+                <i class="fas fa-check-circle me-2"></i>
                 <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php endif; ?>
+            
+            <?php if (isset($_SESSION['error_message'])): ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <i class="fas fa-exclamation-circle me-2"></i>
+                <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
             <?php endif; ?>
@@ -324,6 +356,14 @@ require_once '../../includes/header.php';
                     <!-- Loan Details -->
                     <div class="detail-card">
                         <h5 class="mb-4"><i class="fas fa-info-circle me-2"></i>Loan Details</h5>
+                        
+                        <?php if (!empty($loan['purpose'])): ?>
+                        <div class="mb-3 pb-3 border-bottom">
+                            <div class="info-label">Purpose</div>
+                            <div class="info-value text-muted"><?php echo nl2br(htmlspecialchars($loan['purpose'])); ?></div>
+                        </div>
+                        <?php endif; ?>
+                        
                         <div class="info-grid">
                             <div class="info-item">
                                 <div class="info-label">Interest Rate</div>
@@ -379,15 +419,13 @@ require_once '../../includes/header.php';
                         <div class="d-flex align-items-center mb-3">
                             <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center me-3" 
                                  style="width: 40px; height: 40px;">
-                                <?php echo strtoupper(substr($g['first_name'], 0, 1)); ?>
+                                <?php echo strtoupper(substr($g['full_name'], 0, 1)); ?>
                             </div>
                             <div>
-                                <strong><?php echo htmlspecialchars($g['first_name'] . ' ' . $g['last_name']); ?></strong>
+                                <strong><?php echo htmlspecialchars($g['full_name']); ?></strong>
                                 <small class="d-block text-muted"><?php echo htmlspecialchars($g['employee_number']); ?></small>
+                                <small class="d-block text-info"><?php echo htmlspecialchars($g['guarantor_type']); ?></small>
                             </div>
-                            <span class="ms-auto badge bg-<?php echo $g['status'] === 'APPROVED' ? 'success' : 'warning'; ?>">
-                                <?php echo $g['status']; ?>
-                            </span>
                         </div>
                         <?php endforeach; ?>
                     </div>
@@ -414,8 +452,11 @@ require_once '../../includes/header.php';
                             <div class="timeline-item completed">
                                 <strong>Disbursed</strong>
                                 <small class="d-block text-muted">
-                                    <?php echo date('M d, Y H:i', strtotime($loan['disbursement_date'])); ?>
-                                    <?php if ($loan['disburser_name']): ?> by <?php echo htmlspecialchars($loan['disburser_name']); ?><?php endif; ?>
+                                    <?php echo date('M d, Y', strtotime($loan['disbursement_date'])); ?>
+                                    <br>Method: <?php echo htmlspecialchars(ucwords(str_replace('_', ' ', $loan['disbursement_method'] ?? 'N/A'))); ?>
+                                    <?php if ($loan['disbursement_reference']): ?>
+                                    <br>Ref: <?php echo htmlspecialchars($loan['disbursement_reference']); ?>
+                                    <?php endif; ?>
                                 </small>
                             </div>
                             <?php endif; ?>
@@ -429,17 +470,38 @@ require_once '../../includes/header.php';
                     </div>
 
                     <!-- Actions -->
-                    <?php if ($is_hr): ?>
+                    <?php if ($is_hr || $is_owner): ?>
                     <div class="detail-card">
                         <h5 class="mb-4"><i class="fas fa-cog me-2"></i>Actions</h5>
+                        
+                        <?php if (strtolower($loan['status']) === 'pending' && ($is_owner || $is_hr)): ?>
+                        <a href="edit.php?id=<?php echo $loan_id; ?>" class="btn btn-warning w-100 mb-2">
+                            <i class="fas fa-edit"></i> Edit Application
+                        </a>
+                        <?php endif; ?>
+                        
+                        <?php if ($is_hr): ?>
                         <?php if (in_array(strtolower($loan['status']), ['disbursed', 'active'])): ?>
                         <button type="button" class="btn btn-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#recordPaymentModal">
                             <i class="fas fa-plus me-2"></i>Record Payment
                         </button>
                         <?php endif; ?>
+                        
+                        <?php if (in_array(strtolower($loan['status']), ['pending', 'rejected', 'cancelled'])): ?>
+                        <form method="POST" action="process.php" onsubmit="return confirm('Are you sure you want to delete this loan application? This action cannot be undone.');" class="mb-2">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="loan_id" value="<?php echo $loan_id; ?>">
+                            <input type="hidden" name="redirect" value="index.php">
+                            <button type="submit" class="btn btn-danger w-100">
+                                <i class="fas fa-trash"></i> Delete Loan
+                            </button>
+                        </form>
+                        <?php endif; ?>
+                        
                         <a href="approvals.php" class="btn btn-outline-secondary w-100">
                             <i class="fas fa-arrow-left me-2"></i>Back to List
                         </a>
+                        <?php endif; ?>
                     </div>
                     <?php endif; ?>
 
@@ -447,8 +509,8 @@ require_once '../../includes/header.php';
             </div>
 
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <!-- Record Payment Modal -->
 <?php if ($is_hr && in_array(strtolower($loan['status']), ['disbursed', 'active'])): ?>
@@ -503,5 +565,7 @@ require_once '../../includes/header.php';
     </div>
 </div>
 <?php endif; ?>
+    </div>
+</section>
 
 <?php require_once '../../includes/footer.php'; ?>

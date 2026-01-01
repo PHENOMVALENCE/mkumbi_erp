@@ -19,11 +19,11 @@ $conn = $db->getConnection();
 $company_id = $_SESSION['company_id'];
 $user_id = $_SESSION['user_id'];
 
-$employee = getEmployeeByUserId($conn, $user_id, $company_id);
+$employee = getOrCreateEmployeeForSuperAdmin($conn, $user_id, $company_id);
 
 if (!$employee) {
     $_SESSION['error_message'] = "Employee record not found. Please contact HR to set up your employee profile.";
-    header('Location: ../../index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -142,34 +142,48 @@ require_once '../../includes/header.php';
     .timeline-indicator.cancelled { background: #6c757d; }
 </style>
 
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><i class="fas fa-history me-2"></i>My Leave History</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index.php">Leave</a></li>
-                        <li class="breadcrumb-item active">My History</li>
-                    </ol>
+<!-- Content Header -->
+<div class="content-header mb-4">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h1 class="m-0 fw-bold">
+                    <i class="fas fa-history text-primary me-2"></i>
+                    My Leave History
+                </h1>
+                <p class="text-muted small mb-0 mt-1">
+                    View and manage your leave applications
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                    <a href="apply.php" class="btn btn-primary">
+                        <i class="fas fa-plus me-1"></i> New Leave
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section class="content">
-        <div class="container-fluid">
-            
-            <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="alert alert-success alert-dismissible fade show">
-                <i class="fas fa-check-circle me-2"></i>
-                <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-            <?php endif; ?>
+<!-- Main Content -->
+<section class="content">
+    <div class="container-fluid">
+        <?php if (isset($_SESSION['success_message'])): ?>
+        <div class="alert alert-success alert-dismissible fade show">
+            <i class="fas fa-check-circle me-2"></i>
+            <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_SESSION['error_message'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <?php endif; ?>
 
             <div class="row mb-4">
                 <div class="col-12">
@@ -310,7 +324,7 @@ require_once '../../includes/header.php';
             </div>
 
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <?php require_once '../../includes/footer.php'; ?>

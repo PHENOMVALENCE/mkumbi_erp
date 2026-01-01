@@ -127,25 +127,28 @@ require_once '../../includes/header.php';
     }
 </style>
 
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><i class="fas fa-calendar-times me-2"></i>Leave Report</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="../../dashboard.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index.php">Reports</a></li>
-                        <li class="breadcrumb-item active">Leave Report</li>
-                    </ol>
-                </div>
+<div class="content-header mb-4">
+    <div class="container-fluid">
+        <div class="row mb-3 align-items-center">
+            <div class="col-sm-6">
+                <h1 class="m-0">
+                    <i class="fas fa-calendar-alt me-2"></i>Leave Report
+                </h1>
+            </div>
+            <div class="col-sm-6 text-end">
+                <button onclick="window.print()" class="btn btn-primary btn-sm">
+                    <i class="fas fa-print me-1"></i>Print Report
+                </button>
+                <a href="index.php" class="btn btn-outline-secondary btn-sm">
+                    <i class="fas fa-arrow-left me-1"></i>Back to Reports
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section class="content">
+<div class="container-fluid">
+<section class="content">
         <div class="container-fluid">
             <!-- Summary Stats -->
             <div class="row mb-4">

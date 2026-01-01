@@ -80,7 +80,7 @@ try {
             pr.project_id,
             pr.project_name,
             pr.project_code,
-            pr.location,
+            COALESCE(pr.physical_location, '') as location,
             pr.status as project_status,
             COUNT(DISTINCT p.plot_id) as total_plots,
             SUM(CASE WHEN p.status = 'available' THEN 1 ELSE 0 END) as available_plots,
@@ -103,7 +103,7 @@ try {
         $params[] = $project_id;
     }
     
-    $query .= " GROUP BY pr.project_id, pr.project_name, pr.project_code, pr.location, pr.status
+    $query .= " GROUP BY pr.project_id, pr.project_name, pr.project_code, pr.physical_location, pr.status
                 ORDER BY total_revenue DESC
                 LIMIT $records_per_page OFFSET $offset";
     
@@ -122,7 +122,7 @@ try {
             pr.project_id,
             pr.project_name,
             pr.project_code,
-            pr.location,
+            COALESCE(pr.physical_location, '') as location,
             pr.status as project_status,
             COUNT(DISTINCT p.plot_id) as total_plots,
             SUM(CASE WHEN p.status = 'available' THEN 1 ELSE 0 END) as available_plots,
@@ -145,7 +145,7 @@ try {
         $export_params[] = $project_id;
     }
     
-    $export_query .= " GROUP BY pr.project_id, pr.project_name, pr.project_code, pr.location, pr.status
+    $export_query .= " GROUP BY pr.project_id, pr.project_name, pr.project_code, pr.physical_location, pr.status
                        ORDER BY total_revenue DESC";
     
     $stmt = $conn->prepare($export_query);

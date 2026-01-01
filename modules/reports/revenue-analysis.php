@@ -4,6 +4,7 @@ session_start();
 
 require_once '../../config/database.php';
 require_once '../../config/auth.php';
+require_once '../../includes/functions.php';
 
 $auth = new Auth();
 $auth->requireLogin();
@@ -79,10 +80,14 @@ try {
             p.payment_number,
             p.amount,
             p.payment_method,
-            p.payment_type,
+            CASE 
+                WHEN p.amount = r.total_amount THEN 'full_payment'
+                WHEN p.amount = r.down_payment THEN 'down_payment'
+                ELSE 'installment'
+            END as payment_type,
             r.reservation_number,
             c.full_name as customer_name,
-            c.phone,
+            COALESCE(c.phone1, c.phone) as phone,
             pl.plot_number,
             pl.block_number,
             pr.project_name,
@@ -451,7 +456,7 @@ require_once '../../includes/header.php';
                                 <td><strong><?= htmlspecialchars($row['payment_number']) ?></strong></td>
                                 <td>
                                     <?= htmlspecialchars($row['customer_name']) ?>
-                                    <br><small style="color: #9ca3af;"><?= htmlspecialchars($row['phone']) ?></small>
+                                    <br><small style="color: #9ca3af;"><?= htmlspecialchars($row['phone'] ?? '') ?></small>
                                 </td>
                                 <td>
                                     <small style="color: #6b7280;"><?= htmlspecialchars($row['project_code']) ?></small><br>
@@ -580,7 +585,7 @@ function exportToExcel() {
         '<?= date('d M Y', strtotime($row['payment_date'])) ?>',
         '<?= $row['payment_number'] ?>',
         '<?= addslashes($row['customer_name']) ?>',
-        '<?= $row['phone'] ?>',
+        '<?= $row['phone'] ?? '' ?>',
         '<?= addslashes($row['project_name']) ?>',
         '<?= $row['plot_number'] ?>',
         '<?= ucfirst(str_replace('_', ' ', $row['payment_type'])) ?>',

@@ -4,6 +4,7 @@ session_start();
 
 require_once '../../config/database.php';
 require_once '../../config/auth.php';
+require_once '../../includes/functions.php';
 
 $auth = new Auth();
 $auth->requireLogin();
@@ -77,7 +78,8 @@ try {
             pr.project_code,
             COALESCE((SELECT SUM(amount) FROM payments WHERE reservation_id = r.reservation_id AND status = 'approved'), 0) as total_paid,
             (r.total_amount - COALESCE((SELECT SUM(amount) FROM payments WHERE reservation_id = r.reservation_id AND status = 'approved'), 0)) as balance,
-            (SELECT MAX(payment_date) FROM payments WHERE reservation_id = r.reservation_id AND status = 'approved') as last_payment_date
+            (SELECT MAX(payment_date) FROM payments WHERE reservation_id = r.reservation_id AND status = 'approved') as last_payment_date,
+            (SELECT MAX(payment_number) FROM payments WHERE reservation_id = r.reservation_id AND status = 'approved') as last_payment_reference
         FROM reservations r
         INNER JOIN customers c ON r.customer_id = c.customer_id
         INNER JOIN plots p ON r.plot_id = p.plot_id

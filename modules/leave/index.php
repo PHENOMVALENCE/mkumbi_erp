@@ -18,16 +18,49 @@ $stmt = $conn->prepare("SELECT * FROM employees WHERE user_id = ? AND company_id
 $stmt->execute([$user_id, $company_id]);
 $employee = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Check if user is HR/Admin
-$is_hr = isset($_SESSION['role']) && in_array($_SESSION['role'], ['admin', 'hr', 'super_admin']);
+// Check user roles
+require_once '../../includes/functions.php';
+$is_admin = isAdmin($conn, $user_id);
+$is_management = isManagement($conn, $user_id);
+$is_hr = $is_admin || $is_management;
 
 // Get leave statistics
 $stats = ['pending' => 0, 'approved' => 0, 'my_balance' => 0, 'on_leave_today' => 0];
 
 try {
     if ($is_hr) {
-        $stmt = $conn->prepare("SELECT COUNT(*) as count FROM leave_applications WHERE company_id = ? AND status = 'pending'");
-        $stmt->execute([$company_id]);
+        // Count pending leaves based on role
+        $where_clause = "company_id = ? AND status = 'pending'";
+        $params = [$company_id];
+        
+        if ($is_admin && !$is_management) {
+            // Admin counts employee leaves (non-admin, non-super-admin)
+            $where_clause .= " AND employee_id IN (
+                SELECT e.employee_id FROM employees e
+                WHERE e.company_id = ? AND NOT EXISTS (
+                    SELECT 1 FROM user_roles ur
+                    JOIN system_roles sr ON ur.role_id = sr.role_id
+                    WHERE ur.user_id = e.user_id 
+                    AND sr.role_code IN ('COMPANY_ADMIN', 'SUPER_ADMIN')
+                )
+            )";
+            $params[] = $company_id;
+        } elseif ($is_management && !$is_admin) {
+            // Management counts admin and super admin leaves
+            $where_clause .= " AND employee_id IN (
+                SELECT e.employee_id FROM employees e
+                WHERE e.company_id = ? AND EXISTS (
+                    SELECT 1 FROM user_roles ur
+                    JOIN system_roles sr ON ur.role_id = sr.role_id
+                    WHERE ur.user_id = e.user_id 
+                    AND sr.role_code IN ('COMPANY_ADMIN', 'SUPER_ADMIN')
+                )
+            )";
+            $params[] = $company_id;
+        }
+        
+        $stmt = $conn->prepare("SELECT COUNT(*) as count FROM leave_applications WHERE $where_clause");
+        $stmt->execute($params);
         $stats['pending'] = $stmt->fetch()['count'];
     }
     
@@ -58,19 +91,42 @@ if ($employee) {
     } catch (Exception $e) {}
 }
 
-// Get pending approvals (for HR)
+// Get pending approvals (filtered by role)
 $pending_approvals = [];
 if ($is_hr) {
     try {
+        $where_clause = "la.company_id = ? AND la.status = 'pending'";
+        $params = [$company_id];
+        
+        // Access control: Admin sees employee leaves, Management sees admin and super admin leaves
+        if ($is_admin && !$is_management) {
+            // Admin can only see employee leaves (non-admin, non-super-admin users)
+            $where_clause .= " AND NOT EXISTS (
+                SELECT 1 FROM user_roles ur
+                JOIN system_roles sr ON ur.role_id = sr.role_id
+                WHERE ur.user_id = e.user_id 
+                AND sr.role_code IN ('COMPANY_ADMIN', 'SUPER_ADMIN')
+            )";
+        } elseif ($is_management && !$is_admin) {
+            // Management can only see admin and super admin leaves
+            $where_clause .= " AND EXISTS (
+                SELECT 1 FROM user_roles ur
+                JOIN system_roles sr ON ur.role_id = sr.role_id
+                WHERE ur.user_id = e.user_id 
+                AND sr.role_code IN ('COMPANY_ADMIN', 'SUPER_ADMIN')
+            )";
+        }
+        // If user is both admin and management, they see all leaves
+        
         $stmt = $conn->prepare("SELECT la.*, lt.leave_type_name, u.full_name as employee_name, d.department_name
             FROM leave_applications la
             JOIN leave_types lt ON la.leave_type_id = lt.leave_type_id
             JOIN employees e ON la.employee_id = e.employee_id
             JOIN users u ON e.user_id = u.user_id
             LEFT JOIN departments d ON e.department_id = d.department_id
-            WHERE la.company_id = ? AND la.status = 'pending'
+            WHERE $where_clause
             ORDER BY la.created_at ASC LIMIT 10");
-        $stmt->execute([$company_id]);
+        $stmt->execute($params);
         $pending_approvals = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {}
 }
@@ -104,23 +160,48 @@ require_once '../../includes/header.php';
 .status-badge.rejected{background:#f8d7da;color:#721c24}
 </style>
 
+<!-- Content Header -->
 <div class="content-header mb-4">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-sm-6"><h1 class="m-0 fw-bold"><i class="fas fa-calendar-alt me-2"></i>Leave Management</h1></div>
-            <div class="col-sm-6 text-end">
-                <a href="apply.php" class="btn btn-primary"><i class="fas fa-plus-circle me-1"></i> Apply for Leave</a>
+            <div class="col-sm-6">
+                <h1 class="m-0 fw-bold">
+                    <i class="fas fa-calendar-alt text-primary me-2"></i>
+                    Leave Management
+                </h1>
+                <p class="text-muted small mb-0 mt-1">
+                    Manage leave applications and approvals
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                    <a href="apply.php" class="btn btn-primary">
+                        <i class="fas fa-plus-circle me-1"></i> Apply for Leave
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid">
-    <?php if (isset($_SESSION['success_message'])): ?>
-    <div class="alert alert-success alert-dismissible fade show"><?= $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    <?php endif; ?>
+<!-- Main Content -->
+<section class="content">
+    <div class="container-fluid">
+        <?php if (isset($_SESSION['success_message'])): ?>
+        <div class="alert alert-success alert-dismissible fade show">
+            <i class="fas fa-check-circle me-2"></i>
+            <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_SESSION['error_message'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <?php endif; ?>
 
     <!-- Stats Cards -->
     <div class="row g-3 mb-4">
@@ -233,8 +314,9 @@ require_once '../../includes/header.php';
                 </div>
             </div>
         </div>
+        </div>
+        <?php endif; ?>
     </div>
-    <?php endif; ?>
-</div>
+</section>
 
 <?php require_once '../../includes/footer.php'; ?>

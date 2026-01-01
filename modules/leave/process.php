@@ -1,7 +1,7 @@
 <?php
 /**
  * Leave Request Processing Handler
- * Mkumbi Investments ERP System
+ * Mkumbi Investments ERP System - Approval/Rejection/Cancellation Operations
  */
 
 define('APP_ACCESS', true);
@@ -29,8 +29,8 @@ if (!$leave_id || !in_array($action, ['approve', 'reject', 'cancel'])) {
     exit;
 }
 
-// Fetch leave application
-$sql = "SELECT la.*, e.user_id as employee_user_id, u.full_name as employee_name, u.email as employee_email
+// Fetch leave application with comprehensive data
+$sql = "SELECT la.*, e.user_id as employee_user_id, e.employee_id, u.full_name as employee_name, u.email as employee_email
         FROM leave_applications la
         JOIN employees e ON la.employee_id = e.employee_id
         JOIN users u ON e.user_id = u.user_id
@@ -48,7 +48,11 @@ if (!$leave) {
 // Check permissions
 $employee_data = getEmployeeByUserId($conn, $user_id, $company_id);
 $is_owner = ($employee_data['employee_id'] ?? 0) == $leave['employee_id'];
-$is_manager = hasPermission($conn, $user_id, ['MANAGER', 'HR_OFFICER', 'COMPANY_ADMIN', 'SUPER_ADMIN']);
+$is_admin = isAdmin($conn, $user_id);
+$is_management = isManagement($conn, $user_id);
+
+// Check if the leave applicant is an admin
+$applicant_is_admin = isAdmin($conn, $leave['employee_user_id']);
 
 // Validate action permissions
 if ($action === 'cancel') {
@@ -58,10 +62,21 @@ if ($action === 'cancel') {
         exit;
     }
 } else {
-    if (!$is_manager) {
-        $_SESSION['error_message'] = "You don't have permission to approve/reject leave requests.";
-        header('Location: index.php');
-        exit;
+    // Access control: Admin approves employee leaves, Management approves admin and super admin leaves
+    if ($applicant_is_admin) {
+        // Admin or Super Admin leave - only management can approve/reject
+        if (!$is_management) {
+            $_SESSION['error_message'] = "You don't have permission to approve/reject admin or super admin leave requests. Only management can approve these leaves.";
+            header('Location: index.php');
+            exit;
+        }
+    } else {
+        // Employee leave - only admin can approve/reject
+        if (!$is_admin) {
+            $_SESSION['error_message'] = "You don't have permission to approve/reject employee leave requests. Only admin can approve employee leaves.";
+            header('Location: index.php');
+            exit;
+        }
     }
     
     if ($leave['status'] !== 'pending') {
@@ -124,9 +139,9 @@ try {
             break;
             
         case 'cancel':
-            $update_sql = "UPDATE leave_applications SET status = 'cancelled' WHERE leave_id = ?";
+            $update_sql = "UPDATE leave_applications SET status = 'cancelled' WHERE leave_id = ? AND company_id = ?";
             $stmt = $conn->prepare($update_sql);
-            $stmt->execute([$leave_id]);
+            $stmt->execute([$leave_id, $company_id]);
             
             $new_status = 'cancelled';
             $message = "Leave application cancelled successfully.";
@@ -134,9 +149,9 @@ try {
     }
     
     // Log audit
-    logAudit($conn, $company_id, $user_id, 'update', 'leave', 'leave_applications', $leave_id, $old_values, [
+    logAudit($conn, $company_id, $user_id, $action === 'cancel' ? 'cancel' : 'update', 'leave', 'leave_applications', $leave_id, $old_values, [
         'status' => $new_status,
-        'approved_by' => $user_id,
+        'approved_by' => $action !== 'cancel' ? $user_id : null,
         'action' => $action
     ]);
     
@@ -144,7 +159,9 @@ try {
     $_SESSION['success_message'] = $message;
     
 } catch (Exception $e) {
-    $conn->rollBack();
+    if ($conn->inTransaction()) {
+        $conn->rollBack();
+    }
     error_log("Leave process error: " . $e->getMessage());
     $_SESSION['error_message'] = $e->getMessage();
 }

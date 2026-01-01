@@ -19,8 +19,11 @@ $conn = $db->getConnection();
 $company_id = $_SESSION['company_id'];
 $user_id = $_SESSION['user_id'];
 
-// Check permission
-if (!hasPermission($conn, $user_id, ['HR_OFFICER', 'FINANCE_OFFICER', 'COMPANY_ADMIN', 'SUPER_ADMIN'])) {
+// Check permission - must be either admin or management
+$is_admin = isAdmin($conn, $user_id);
+$is_management = isManagement($conn, $user_id);
+
+if (!$is_admin && !$is_management) {
     $_SESSION['error_message'] = "You don't have permission to manage loan approvals.";
     header('Location: index.php');
     exit;
@@ -31,9 +34,9 @@ $status_filter = $_GET['status'] ?? 'pending';
 $department_filter = $_GET['department'] ?? '';
 $loan_type_filter = $_GET['loan_type'] ?? '';
 
-// Build query
-$sql = "SELECT el.*, COALESCE(lt.type_name, lt.loan_type_name) as loan_type_name, u.full_name as employee_name, e.employee_number,
-               e.basic_salary, d.department_name,
+// Build query (matching exact schema - type_name not loan_type_name)
+$sql = "SELECT el.*, lt.type_name as loan_type_name, u.full_name as employee_name, e.employee_number,
+               e.basic_salary, d.department_name, e.user_id as employee_user_id,
                (SELECT u2.full_name FROM users u2 WHERE u2.user_id = el.approved_by) as approver_name
         FROM employee_loans el
         JOIN loan_types lt ON el.loan_type_id = lt.loan_type_id
@@ -42,6 +45,28 @@ $sql = "SELECT el.*, COALESCE(lt.type_name, lt.loan_type_name) as loan_type_name
         LEFT JOIN departments d ON e.department_id = d.department_id
         WHERE el.company_id = ?";
 $params = [$company_id];
+
+// Access control: Admin manages employee loans, Management manages admin and super admin loans
+if ($is_admin && !$is_management) {
+    // Admin can only see employee loans (non-admin, non-super-admin users)
+    $sql .= " AND NOT EXISTS (
+        SELECT 1 FROM user_roles ur
+        JOIN system_roles sr ON ur.role_id = sr.role_id
+        WHERE ur.user_id = e.user_id 
+        AND sr.role_code IN ('COMPANY_ADMIN', 'SUPER_ADMIN')
+    )";
+} elseif ($is_management && !$is_admin) {
+    // Management can only see admin and super admin loans
+    $sql .= " AND EXISTS (
+        SELECT 1 FROM user_roles ur
+        JOIN system_roles sr ON ur.role_id = sr.role_id
+        WHERE ur.user_id = e.user_id 
+        AND sr.role_code IN ('COMPANY_ADMIN', 'SUPER_ADMIN')
+    )";
+} elseif ($is_management && $is_admin) {
+    // If user is both admin and management, they can see all loans
+    // No additional filter needed
+}
 
 if ($status_filter && strtolower($status_filter) !== 'all') {
     $sql .= " AND el.status = ?";
@@ -66,7 +91,7 @@ $dept_stmt = $conn->prepare("SELECT department_id, department_name FROM departme
 $dept_stmt->execute([$company_id]);
 $departments = $dept_stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$loan_types_stmt = $conn->prepare("SELECT loan_type_id, COALESCE(type_name, loan_type_name) as loan_type_name FROM loan_types WHERE company_id = ? ORDER BY COALESCE(type_name, loan_type_name)");
+$loan_types_stmt = $conn->prepare("SELECT loan_type_id, type_name as loan_type_name FROM loan_types WHERE company_id = ? ORDER BY type_name");
 $loan_types_stmt->execute([$company_id]);
 $loan_types = $loan_types_stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -130,29 +155,36 @@ require_once '../../includes/header.php';
     .action-buttons .btn { padding: 5px 15px; }
 </style>
 
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><i class="fas fa-clipboard-check me-2"></i>Loan Approvals</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="../../dashboard.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index.php">Loans</a></li>
-                        <li class="breadcrumb-item active">Approvals</li>
-                    </ol>
+<!-- Content Header -->
+<div class="content-header mb-4">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h1 class="m-0 fw-bold">
+                    <i class="fas fa-clipboard-check text-primary me-2"></i>
+                    Loan Approvals
+                </h1>
+                <p class="text-muted small mb-0 mt-1">
+                    Review and manage loan applications
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                    <a href="index.php" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Back to Loans
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section class="content">
-        <div class="container-fluid">
-            
+<!-- Main Content -->
+<section class="content">
+    <div class="container-fluid">
             <?php if (isset($_SESSION['success_message'])): ?>
             <div class="alert alert-success alert-dismissible fade show">
+                <i class="fas fa-check-circle me-2"></i>
                 <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
@@ -160,6 +192,7 @@ require_once '../../includes/header.php';
             
             <?php if (isset($_SESSION['error_message'])): ?>
             <div class="alert alert-danger alert-dismissible fade show">
+                <i class="fas fa-exclamation-circle me-2"></i>
                 <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
@@ -272,28 +305,43 @@ require_once '../../includes/header.php';
                                 </td>
                                 <td><?php echo getStatusBadge($loan['status']); ?></td>
                                 <td class="action-buttons">
-                                    <a href="view.php?id=<?php echo $loan['loan_id']; ?>" class="btn btn-sm btn-outline-primary">
+                                    <a href="view.php?id=<?php echo $loan['loan_id']; ?>" class="btn btn-sm btn-outline-primary" title="View Details">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                     <?php if (strtolower($loan['status']) === 'pending'): ?>
+                                    <a href="edit.php?id=<?php echo $loan['loan_id']; ?>" class="btn btn-sm btn-outline-warning" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                     <button type="button" class="btn btn-sm btn-success approve-btn" 
                                             data-id="<?php echo $loan['loan_id']; ?>"
                                             data-name="<?php echo htmlspecialchars($loan['employee_name']); ?>"
-                                            data-amount="<?php echo formatCurrency($loan['loan_amount']); ?>">
+                                            data-amount="<?php echo formatCurrency($loan['loan_amount']); ?>"
+                                            title="Approve">
                                         <i class="fas fa-check"></i>
                                     </button>
                                     <button type="button" class="btn btn-sm btn-danger reject-btn"
                                             data-id="<?php echo $loan['loan_id']; ?>"
-                                            data-name="<?php echo htmlspecialchars($loan['employee_name']); ?>">
+                                            data-name="<?php echo htmlspecialchars($loan['employee_name']); ?>"
+                                            title="Reject">
                                         <i class="fas fa-times"></i>
                                     </button>
                                     <?php elseif (strtolower($loan['status']) === 'approved'): ?>
                                     <button type="button" class="btn btn-sm btn-info disburse-btn"
                                             data-id="<?php echo $loan['loan_id']; ?>"
                                             data-name="<?php echo htmlspecialchars($loan['employee_name']); ?>"
-                                            data-amount="<?php echo formatCurrency($loan['loan_amount']); ?>">
-                                        <i class="fas fa-money-bill-wave"></i> Disburse
+                                            data-amount="<?php echo formatCurrency($loan['loan_amount']); ?>"
+                                            title="Disburse">
+                                        <i class="fas fa-money-bill-wave"></i>
                                     </button>
+                                    <?php elseif (in_array(strtolower($loan['status']), ['rejected', 'cancelled'])): ?>
+                                    <form method="POST" action="process.php" style="display:inline;" onsubmit="return confirm('Delete this loan application? This cannot be undone.');">
+                                        <input type="hidden" name="action" value="delete">
+                                        <input type="hidden" name="loan_id" value="<?php echo $loan['loan_id']; ?>">
+                                        <input type="hidden" name="redirect" value="approvals.php">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -305,8 +353,8 @@ require_once '../../includes/header.php';
             </div>
 
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <!-- Approve Modal -->
 <div class="modal fade" id="approveModal" tabindex="-1">
@@ -389,10 +437,31 @@ require_once '../../includes/header.php';
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Payment Method</label>
-                        <select name="payment_method" class="form-select" required>
-                            <option value="BANK_TRANSFER">Bank Transfer</option>
-                            <option value="CASH">Cash</option>
-                            <option value="CHEQUE">Cheque</option>
+                        <select name="payment_method" id="disbursementMethod" class="form-select" required>
+                            <option value="bank_transfer">Bank Transfer</option>
+                            <option value="cash">Cash</option>
+                            <option value="cheque">Cheque</option>
+                        </select>
+                    </div>
+                    <div class="mb-3" id="bankAccountField" style="display: none;">
+                        <label class="form-label">Bank Account <span class="text-danger">*</span></label>
+                        <select name="bank_account_id" class="form-select">
+                            <option value="">-- Select Bank Account --</option>
+                            <?php
+                            // Fetch bank accounts
+                            $bank_accounts_sql = "SELECT bank_account_id, account_name, account_number, bank_name 
+                                                 FROM bank_accounts 
+                                                 WHERE company_id = ? AND is_active = 1 
+                                                 ORDER BY account_name";
+                            $bank_stmt = $conn->prepare($bank_accounts_sql);
+                            $bank_stmt->execute([$company_id]);
+                            $bank_accounts = $bank_stmt->fetchAll(PDO::FETCH_ASSOC);
+                            foreach ($bank_accounts as $account):
+                            ?>
+                            <option value="<?php echo $account['bank_account_id']; ?>">
+                                <?php echo htmlspecialchars($account['account_name'] . ' - ' . $account['bank_name'] . ' (' . $account['account_number'] . ')'); ?>
+                            </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -442,6 +511,21 @@ document.addEventListener('DOMContentLoaded', function() {
             new bootstrap.Modal(document.getElementById('disburseModal')).show();
         });
     });
+    
+    // Show/hide bank account field based on payment method
+    const disbursementMethod = document.getElementById('disbursementMethod');
+    const bankAccountField = document.getElementById('bankAccountField');
+    if (disbursementMethod && bankAccountField) {
+        disbursementMethod.addEventListener('change', function() {
+            if (this.value === 'bank_transfer') {
+                bankAccountField.style.display = 'block';
+                bankAccountField.querySelector('select').required = true;
+            } else {
+                bankAccountField.style.display = 'none';
+                bankAccountField.querySelector('select').required = false;
+            }
+        });
+    }
 });
 </script>
 

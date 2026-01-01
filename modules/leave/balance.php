@@ -16,7 +16,37 @@ $user_id = $_SESSION['user_id'];
 
 $page_title = "Leave Balance";
 require_once '../../includes/header.php';
+?>
 
+<!-- Content Header -->
+<div class="content-header mb-4">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h1 class="m-0 fw-bold">
+                    <i class="fas fa-chart-bar text-primary me-2"></i>
+                    Leave Balance Report
+                </h1>
+                <p class="text-muted small mb-0 mt-1">
+                    View leave balances and entitlements
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                    <a href="index.php" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Back to Leave
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<section class="content">
+    <div class="container-fluid">
+
+<?php
 // Get current fiscal/leave year
 $settings_query = "SELECT setting_value FROM system_settings WHERE company_id = ? AND setting_key = 'leave_year_start'";
 $settings_stmt = $conn->prepare($settings_query);
@@ -38,36 +68,62 @@ if ($current_month >= $leave_year_start) {
 $filter_employee = isset($_GET['employee']) ? intval($_GET['employee']) : 0;
 $filter_department = isset($_GET['department']) ? intval($_GET['department']) : 0;
 
-// Get leave balances - Note: leave_balances table may not exist, using leave_applications as fallback
-$query = "SELECT la.employee_id, lt.leave_type_name, lt.days_per_year, u.full_name, e.employee_number, d.department_name,
-                 COUNT(*) as used_days,
-                 lt.days_per_year as entitled_days,
-                 (lt.days_per_year - COUNT(*)) as balance
-          FROM leave_applications la
-          JOIN leave_types lt ON la.leave_type_id = lt.leave_type_id
-          JOIN employees e ON la.employee_id = e.employee_id
+// Get leave balances - Calculate from leave_applications
+// Get all employees with their leave types and entitlements
+$base_query = "SELECT e.employee_id, u.full_name, e.employee_number, d.department_name,
+                 lt.leave_type_id, lt.leave_type_name, lt.days_per_year as entitled_days
+          FROM employees e
           JOIN users u ON e.user_id = u.user_id
           LEFT JOIN departments d ON e.department_id = d.department_id
-          WHERE la.company_id = ? AND YEAR(la.start_date) = ?
-          GROUP BY la.employee_id, la.leave_type_id";
+          CROSS JOIN leave_types lt
+          WHERE e.company_id = ? AND e.is_active = 1 AND lt.company_id = ? AND lt.is_active = 1";
 
-$params = [$company_id, $fiscal_year];
+$base_params = [$company_id, $company_id];
 
 if ($filter_employee) {
-    $query .= " AND la.employee_id = ?";
-    $params[] = $filter_employee;
+    $base_query .= " AND e.employee_id = ?";
+    $base_params[] = $filter_employee;
 }
 
 if ($filter_department) {
-    $query .= " AND e.department_id = ?";
-    $params[] = $filter_department;
+    $base_query .= " AND e.department_id = ?";
+    $base_params[] = $filter_department;
 }
 
-$query .= " ORDER BY u.full_name, lt.leave_type_name";
+$base_query .= " ORDER BY u.full_name, lt.leave_type_name";
 
-$stmt = $conn->prepare($query);
-$stmt->execute($params);
-$balances = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $conn->prepare($base_query);
+$stmt->execute($base_params);
+$employee_leave_types = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Calculate used days for each employee and leave type
+$balances = [];
+foreach ($employee_leave_types as $elt) {
+    $used_query = "SELECT COALESCE(SUM(total_days), 0) as used_days
+                   FROM leave_applications
+                   WHERE employee_id = ? AND leave_type_id = ? 
+                   AND company_id = ? AND status = 'approved'
+                   AND YEAR(start_date) = ?";
+    $used_stmt = $conn->prepare($used_query);
+    $used_stmt->execute([$elt['employee_id'], $elt['leave_type_id'], $company_id, $fiscal_year]);
+    $used_result = $used_stmt->fetch(PDO::FETCH_ASSOC);
+    
+    $used_days = floatval($used_result['used_days'] ?? 0);
+    $entitled_days = floatval($elt['entitled_days']);
+    $balance = $entitled_days - $used_days;
+    
+    $balances[] = [
+        'employee_id' => $elt['employee_id'],
+        'full_name' => $elt['full_name'],
+        'employee_number' => $elt['employee_number'],
+        'department_name' => $elt['department_name'],
+        'leave_type_name' => $elt['leave_type_name'],
+        'entitled_days' => $entitled_days,
+        'used_days' => $used_days,
+        'carried_forward' => 0, // Can be calculated if needed
+        'balance' => $balance
+    ];
+}
 
 // Get employees for filter
 $emp_query = "SELECT e.employee_id, u.full_name, e.employee_number 
@@ -86,13 +142,11 @@ $dept_stmt->execute([$company_id]);
 $departments = $dept_stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<div class="container-fluid mt-4">
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <h2><i class="fas fa-chart-bar me-2"></i>Leave Balance Report</h2>
-            <p class="text-muted">Fiscal Year: <?php echo $fiscal_year; ?></p>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <p class="text-muted"><strong>Fiscal Year:</strong> <?php echo $fiscal_year; ?></p>
+            </div>
         </div>
-    </div>
 
     <!-- Filters -->
     <div class="card mb-4 border-0 shadow-sm">
@@ -211,6 +265,6 @@ $departments = $dept_stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<?php include '../../includes/footer.php'; ?>
+<?php require_once '../../includes/footer.php'; ?>

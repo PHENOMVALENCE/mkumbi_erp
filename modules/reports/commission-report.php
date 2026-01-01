@@ -29,23 +29,24 @@ $commission_data = [];
 $sales_people = [];
 
 try {
-    // Summary statistics
+    // Summary statistics - using commissions table
     $query = "
         SELECT 
-            COUNT(DISTINCT r.reservation_id) as total_sales,
+            COUNT(DISTINCT c.reservation_id) as total_sales,
             SUM(r.total_amount) as total_sales_value,
-            SUM(r.commission_amount) as total_commission_earned,
-            SUM(CASE WHEN r.commission_status = 'paid' THEN r.commission_amount ELSE 0 END) as total_commission_paid,
-            SUM(CASE WHEN r.commission_status = 'pending' THEN r.commission_amount ELSE 0 END) as total_commission_pending
-        FROM reservations r
-        WHERE r.company_id = ?
-        AND r.reservation_date BETWEEN ? AND ?
-        AND r.commission_amount > 0
+            SUM(c.commission_amount) as total_commission_earned,
+            SUM(CASE WHEN c.payment_status = 'paid' THEN c.commission_amount ELSE 0 END) as total_commission_paid,
+            SUM(CASE WHEN c.payment_status = 'pending' THEN c.commission_amount ELSE 0 END) as total_commission_pending
+        FROM commissions c
+        INNER JOIN reservations r ON c.reservation_id = r.reservation_id
+        WHERE c.company_id = ?
+        AND DATE(c.created_at) BETWEEN ? AND ?
+        AND c.commission_amount > 0
     ";
     
     $params = [$company_id, $start_date, $end_date];
     if ($sales_person_id) {
-        $query .= " AND r.created_by = ?";
+        $query .= " AND c.user_id = ?";
         $params[] = $sales_person_id;
     }
     
@@ -56,43 +57,55 @@ try {
     // Detailed commission data
     $query = "
         SELECT 
+            c.commission_id,
+            c.commission_number,
+            DATE(c.created_at) as commission_date,
             r.reservation_id,
             r.reservation_number,
             r.reservation_date,
             r.total_amount,
-            r.commission_amount,
-            r.commission_percentage,
-            r.commission_status,
-            c.full_name as customer_name,
-            c.phone,
+            c.commission_amount,
+            c.commission_percentage,
+            c.payment_status as commission_status,
+            c.recipient_name,
+            c.recipient_phone,
+            cust.full_name as customer_name,
+            cust.phone1 as phone,
             p.plot_number,
             p.block_number,
             pr.project_name,
             pr.project_code,
             u.full_name as sales_person_name
-        FROM reservations r
-        INNER JOIN customers c ON r.customer_id = c.customer_id
+        FROM commissions c
+        INNER JOIN reservations r ON c.reservation_id = r.reservation_id
+        INNER JOIN customers cust ON r.customer_id = cust.customer_id
         INNER JOIN plots p ON r.plot_id = p.plot_id
         INNER JOIN projects pr ON p.project_id = pr.project_id
-        LEFT JOIN users u ON r.created_by = u.user_id
-        WHERE r.company_id = ?
-        AND r.reservation_date BETWEEN ? AND ?
-        AND r.commission_amount > 0
+        LEFT JOIN users u ON c.user_id = u.user_id
+        WHERE c.company_id = ?
+        AND DATE(c.created_at) BETWEEN ? AND ?
+        AND c.commission_amount > 0
     ";
     
     $params = [$company_id, $start_date, $end_date];
     if ($sales_person_id) {
-        $query .= " AND r.created_by = ?";
+        $query .= " AND c.user_id = ?";
         $params[] = $sales_person_id;
     }
-    $query .= " ORDER BY r.reservation_date DESC";
+    $query .= " ORDER BY c.commission_date DESC";
     
     $stmt = $conn->prepare($query);
     $stmt->execute($params);
     $commission_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    // Get sales people for filter
-    $stmt = $conn->prepare("SELECT user_id, full_name FROM users WHERE company_id = ? AND role IN ('admin', 'sales') ORDER BY full_name");
+    // Get sales people for filter - users who have commissions
+    $stmt = $conn->prepare("
+        SELECT DISTINCT u.user_id, u.full_name 
+        FROM users u
+        INNER JOIN commissions c ON u.user_id = c.user_id
+        WHERE c.company_id = ?
+        ORDER BY u.full_name
+    ");
     $stmt->execute([$company_id]);
     $sales_people = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
@@ -416,11 +429,11 @@ require_once '../../includes/header.php';
                                 $total_commission += $row['commission_amount'];
                             ?>
                             <tr>
-                                <td><?= date('d M Y', strtotime($row['reservation_date'])) ?></td>
+                                <td><?= date('d M Y', strtotime($row['commission_date'] ?? $row['reservation_date'])) ?></td>
                                 <td><strong><?= htmlspecialchars($row['reservation_number']) ?></strong></td>
                                 <td>
                                     <?= htmlspecialchars($row['customer_name']) ?>
-                                    <br><small style="color: #9ca3af;"><?= htmlspecialchars($row['phone']) ?></small>
+                                    <br><small style="color: #9ca3af;"><?= htmlspecialchars($row['phone'] ?? '') ?></small>
                                 </td>
                                 <td>
                                     <small style="color: #6b7280;"><?= htmlspecialchars($row['project_code']) ?></small><br>
@@ -428,14 +441,14 @@ require_once '../../includes/header.php';
                                 </td>
                                 <td><?= htmlspecialchars($row['plot_number'] . ($row['block_number'] ? '/' . $row['block_number'] : '')) ?></td>
                                 <td class="text-end">TSH <?= number_format($row['total_amount'], 0) ?></td>
-                                <td class="text-center"><strong><?= $row['commission_percentage'] ?>%</strong></td>
+                                <td class="text-center"><strong><?= $row['commission_percentage'] ?? 0 ?>%</strong></td>
                                 <td class="text-end"><strong>TSH <?= number_format($row['commission_amount'], 0) ?></strong></td>
                                 <td>
-                                    <span class="badge-custom badge-<?= $row['commission_status'] ?>">
+                                    <span class="badge-custom badge-<?= strtolower($row['commission_status']) ?>">
                                         <?= ucfirst($row['commission_status']) ?>
                                     </span>
                                 </td>
-                                <td><?= htmlspecialchars($row['sales_person_name'] ?: '-') ?></td>
+                                <td><?= htmlspecialchars($row['recipient_name'] ?? $row['sales_person_name'] ?? '-') ?></td>
                             </tr>
                             <?php endforeach; ?>
                             <tr class="total-row">
@@ -506,17 +519,17 @@ function exportToExcel() {
     
     <?php foreach ($commission_data as $row): ?>
     data.push([
-        '<?= date('d M Y', strtotime($row['reservation_date'])) ?>',
+        '<?= date('d M Y', strtotime($row['commission_date'] ?? $row['reservation_date'])) ?>',
         '<?= $row['reservation_number'] ?>',
         '<?= addslashes($row['customer_name']) ?>',
-        '<?= $row['phone'] ?>',
+        '<?= $row['phone'] ?? '' ?>',
         '<?= addslashes($row['project_name']) ?>',
         '<?= $row['plot_number'] ?>',
         <?= $row['total_amount'] ?>,
-        '<?= $row['commission_percentage'] ?>%',
+        '<?= $row['commission_percentage'] ?? 0 ?>%',
         <?= $row['commission_amount'] ?>,
         '<?= ucfirst($row['commission_status']) ?>',
-        '<?= addslashes($row['sales_person_name'] ?: '-') ?>'
+        '<?= addslashes($row['recipient_name'] ?? $row['sales_person_name'] ?? '-') ?>'
     ]);
     <?php endforeach; ?>
     

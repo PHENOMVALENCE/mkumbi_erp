@@ -19,8 +19,11 @@ $conn = $db->getConnection();
 $company_id = $_SESSION['company_id'];
 $user_id = $_SESSION['user_id'];
 
-// Check permission
-if (!hasPermission($conn, $user_id, ['MANAGER', 'HR_OFFICER', 'COMPANY_ADMIN', 'SUPER_ADMIN'])) {
+// Check permission - must be either admin or management
+$is_admin = isAdmin($conn, $user_id);
+$is_management = isManagement($conn, $user_id);
+
+if (!$is_admin && !$is_management) {
     $_SESSION['error_message'] = "You don't have permission to access this page.";
     header('Location: index.php');
     exit;
@@ -68,6 +71,28 @@ $filter_leave_type = $_GET['leave_type'] ?? '';
 // Build query
 $where = ["la.company_id = ?"];
 $params = [$company_id];
+
+// Access control: Admin manages employee leaves, Management manages admin and super admin leaves
+if ($is_admin && !$is_management) {
+    // Admin can only see employee leaves (non-admin, non-super-admin users)
+    $where[] = "NOT EXISTS (
+        SELECT 1 FROM user_roles ur
+        JOIN system_roles sr ON ur.role_id = sr.role_id
+        WHERE ur.user_id = e.user_id 
+        AND sr.role_code IN ('COMPANY_ADMIN', 'SUPER_ADMIN')
+    )";
+} elseif ($is_management && !$is_admin) {
+    // Management can only see admin and super admin leaves
+    $where[] = "EXISTS (
+        SELECT 1 FROM user_roles ur
+        JOIN system_roles sr ON ur.role_id = sr.role_id
+        WHERE ur.user_id = e.user_id 
+        AND sr.role_code IN ('COMPANY_ADMIN', 'SUPER_ADMIN')
+    )";
+} elseif ($is_management && $is_admin) {
+    // If user is both admin and management, they can see all leaves
+    // No additional filter needed
+}
 
 if ($filter_status !== 'all') {
     $where[] = "la.status = ?";
@@ -192,42 +217,48 @@ require_once '../../includes/header.php';
     }
 </style>
 
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><i class="fas fa-check-double me-2"></i>Leave Approvals</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="../../dashboard.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index.php">Leave</a></li>
-                        <li class="breadcrumb-item active">Approvals</li>
-                    </ol>
+<!-- Content Header -->
+<div class="content-header mb-4">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h1 class="m-0 fw-bold">
+                    <i class="fas fa-check-double text-primary me-2"></i>
+                    Leave Approvals
+                </h1>
+                <p class="text-muted small mb-0 mt-1">
+                    Review and manage leave applications
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                    <a href="index.php" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Back to Leave
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section class="content">
-        <div class="container-fluid">
-            
-            <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="alert alert-success alert-dismissible fade show">
-                <i class="fas fa-check-circle me-2"></i>
-                <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-            <?php endif; ?>
-
-            <?php if (isset($_SESSION['error_message'])): ?>
-            <div class="alert alert-danger alert-dismissible fade show">
-                <i class="fas fa-exclamation-circle me-2"></i>
-                <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-            <?php endif; ?>
+<!-- Main Content -->
+<section class="content">
+    <div class="container-fluid">
+        <?php if (isset($_SESSION['success_message'])): ?>
+        <div class="alert alert-success alert-dismissible fade show">
+            <i class="fas fa-check-circle me-2"></i>
+            <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_SESSION['error_message'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <?php endif; ?>
 
             <!-- Stats Badges -->
             <div class="stats-row">
@@ -439,7 +470,7 @@ require_once '../../includes/header.php';
             </form>
         </div>
     </div>
-</div>
+</section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

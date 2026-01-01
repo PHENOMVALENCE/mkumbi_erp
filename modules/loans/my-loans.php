@@ -2,6 +2,7 @@
 /**
  * My Loans History
  * Mkumbi Investments ERP System
+ * FIXED: Null safety for formatCurrency() calls
  */
 
 define('APP_ACCESS', true);
@@ -19,7 +20,7 @@ $conn = $db->getConnection();
 $company_id = $_SESSION['company_id'];
 $user_id = $_SESSION['user_id'];
 
-$employee = getEmployeeByUserId($conn, $user_id, $company_id);
+$employee = getOrCreateEmployeeForSuperAdmin($conn, $user_id, $company_id);
 if (!$employee) {
     $_SESSION['error_message'] = "Employee record not found.";
     header('Location: index.php');
@@ -30,10 +31,10 @@ if (!$employee) {
 $status_filter = $_GET['status'] ?? '';
 $year_filter = $_GET['year'] ?? date('Y');
 
-// Get all loans for this employee
-$sql = "SELECT el.*, COALESCE(lt.type_name, lt.loan_type_name) as loan_type_name, lt.interest_rate,
+// Get all loans for this employee (matching exact schema)
+$sql = "SELECT el.*, lt.type_name as loan_type_name, lt.interest_rate,
                (SELECT COUNT(*) FROM loan_payments lp WHERE lp.loan_id = el.loan_id) as payments_count,
-               (SELECT SUM(total_paid) FROM loan_payments lp WHERE lp.loan_id = el.loan_id) as total_paid
+               (SELECT COALESCE(SUM(total_paid), 0) FROM loan_payments lp WHERE lp.loan_id = el.loan_id) as total_paid
         FROM employee_loans el
         JOIN loan_types lt ON el.loan_type_id = lt.loan_type_id
         WHERE el.employee_id = ?";
@@ -53,7 +54,7 @@ $stmt = $conn->prepare($sql);
 $stmt->execute($params);
 $loans = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Get summary statistics
+// Get summary statistics - FIX: Handle null values
 $sql = "SELECT 
             COUNT(*) as total_loans,
             SUM(CASE WHEN status IN ('disbursed', 'active') THEN loan_amount ELSE 0 END) as active_borrowed,
@@ -63,6 +64,12 @@ $sql = "SELECT
 $stmt = $conn->prepare($sql);
 $stmt->execute([$employee['employee_id']]);
 $summary = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Ensure all values are set (null-safe)
+$summary['total_loans'] = $summary['total_loans'] ?? 0;
+$summary['active_borrowed'] = $summary['active_borrowed'] ?? 0;
+$summary['total_outstanding'] = $summary['total_outstanding'] ?? 0;
+$summary['completed_loans'] = $summary['completed_loans'] ?? 0;
 
 // Get available years
 $sql = "SELECT DISTINCT YEAR(created_at) as year FROM employee_loans WHERE employee_id = ? ORDER BY year DESC";
@@ -124,57 +131,72 @@ require_once '../../includes/header.php';
     }
 </style>
 
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><i class="fas fa-history me-2"></i>My Loans</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="../../dashboard.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index.php">Loans</a></li>
-                        <li class="breadcrumb-item active">My Loans</li>
-                    </ol>
+<!-- Content Header -->
+<div class="content-header mb-4">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h1 class="m-0 fw-bold">
+                    <i class="fas fa-history text-primary me-2"></i>
+                    My Loans
+                </h1>
+                <p class="text-muted small mb-0 mt-1">
+                    View and manage your loan applications
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                    <a href="apply.php" class="btn btn-primary">
+                        <i class="fas fa-plus me-1"></i> New Loan
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section class="content">
-        <div class="container-fluid">
-            
+<!-- Main Content -->
+<section class="content">
+    <div class="container-fluid">
             <?php if (isset($_SESSION['success_message'])): ?>
             <div class="alert alert-success alert-dismissible fade show">
+                <i class="fas fa-check-circle me-2"></i>
                 <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
             <?php endif; ?>
+            
+            <?php if (isset($_SESSION['error_message'])): ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <i class="fas fa-exclamation-circle me-2"></i>
+                <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php endif; ?>
 
-            <!-- Summary Cards -->
+            <!-- Summary Cards - FIXED: Null safety -->
             <div class="row mb-4">
                 <div class="col-md-3 mb-3">
                     <div class="summary-card">
-                        <h4><?php echo $summary['total_loans']; ?></h4>
+                        <h4><?php echo (int)$summary['total_loans']; ?></h4>
                         <p>Total Loans</p>
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="summary-card">
-                        <h4><?php echo formatCurrency($summary['active_borrowed']); ?></h4>
+                        <h4><?php echo formatCurrency($summary['active_borrowed'] ?? 0); ?></h4>
                         <p>Active Borrowed</p>
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="summary-card">
-                        <h4 class="text-danger"><?php echo formatCurrency($summary['total_outstanding']); ?></h4>
+                        <h4 class="text-danger"><?php echo formatCurrency($summary['total_outstanding'] ?? 0); ?></h4>
                         <p>Outstanding Balance</p>
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="summary-card">
-                        <h4 class="text-success"><?php echo formatCurrency($summary['completed_loans']); ?></h4>
+                        <h4 class="text-success"><?php echo formatCurrency($summary['completed_loans'] ?? 0); ?></h4>
                         <p>Completed Loans</p>
                     </div>
                 </div>
@@ -227,43 +249,44 @@ require_once '../../includes/header.php';
             <?php else: ?>
             <?php foreach ($loans as $loan): 
                 $paid_amount = $loan['total_paid'] ?? 0;
-                $paid_percent = $loan['total_repayable'] > 0 ? ($paid_amount / $loan['total_repayable']) * 100 : 0;
+                $total_repayable = ($loan['loan_amount'] ?? 0) + ($loan['interest_outstanding'] ?? 0);
+                $paid_percent = $total_repayable > 0 ? ($paid_amount / $total_repayable) * 100 : 0;
             ?>
             <div class="loan-card">
                 <div class="loan-header">
                     <div>
-                        <span class="loan-amount"><?php echo formatCurrency($loan['loan_amount']); ?></span>
-                        <span class="text-muted ms-2"><?php echo htmlspecialchars($loan['loan_type_name']); ?></span>
+                        <span class="loan-amount"><?php echo formatCurrency($loan['loan_amount'] ?? 0); ?></span>
+                        <span class="text-muted ms-2"><?php echo htmlspecialchars($loan['loan_type_name'] ?? 'Unknown'); ?></span>
                         <br>
-                        <small class="text-muted">Ref: <?php echo htmlspecialchars($loan['loan_number']); ?></small>
+                        <small class="text-muted">Ref: <?php echo htmlspecialchars($loan['loan_number'] ?? 'N/A'); ?></small>
                     </div>
                     <div class="text-end">
-                        <?php echo getStatusBadge($loan['status']); ?>
+                        <?php echo getStatusBadge($loan['status'] ?? 'unknown'); ?>
                         <br>
-                        <small class="text-muted">Applied: <?php echo date('M d, Y', strtotime($loan['created_at'])); ?></small>
+                        <small class="text-muted">Applied: <?php echo isset($loan['created_at']) ? date('M d, Y', strtotime($loan['created_at'])) : 'N/A'; ?></small>
                     </div>
                 </div>
                 
                 <div class="loan-details">
                     <div class="loan-detail">
                         <small>Interest Rate</small>
-                        <strong><?php echo $loan['interest_rate']; ?>%</strong>
+                        <strong><?php echo htmlspecialchars($loan['interest_rate'] ?? '0'); ?>%</strong>
                     </div>
                     <div class="loan-detail">
                         <small>Term</small>
-                        <strong><?php echo $loan['repayment_period_months']; ?> months</strong>
+                        <strong><?php echo htmlspecialchars($loan['repayment_period_months'] ?? '0'); ?> months</strong>
                     </div>
                     <div class="loan-detail">
                         <small>Monthly Payment</small>
-                        <strong><?php echo formatCurrency($loan['monthly_deduction']); ?></strong>
+                        <strong><?php echo formatCurrency($loan['monthly_deduction'] ?? 0); ?></strong>
                     </div>
                     <div class="loan-detail">
                         <small>Outstanding</small>
-                        <strong class="text-danger"><?php echo formatCurrency($loan['total_outstanding']); ?></strong>
+                        <strong class="text-danger"><?php echo formatCurrency($loan['total_outstanding'] ?? 0); ?></strong>
                     </div>
                 </div>
                 
-                <?php if (in_array(strtolower($loan['status']), ['disbursed', 'active', 'completed'])): ?>
+                <?php if (in_array(strtolower($loan['status'] ?? ''), ['disbursed', 'active', 'completed'])): ?>
                 <div class="progress-section">
                     <div class="d-flex justify-content-between mb-2">
                         <small>Repayment Progress</small>
@@ -273,13 +296,13 @@ require_once '../../includes/header.php';
                         <div class="progress-bar bg-success" style="width: <?php echo $paid_percent; ?>%"></div>
                     </div>
                     <div class="d-flex justify-content-between mt-2">
-                        <small class="text-muted">Paid: <?php echo formatCurrency($paid_amount); ?></small>
-                        <small class="text-muted">Remaining: <?php echo formatCurrency($loan['total_outstanding']); ?></small>
+                        <small class="text-muted">Paid: <?php echo formatCurrency($paid_amount ?? 0); ?></small>
+                        <small class="text-muted">Remaining: <?php echo formatCurrency($loan['total_outstanding'] ?? 0); ?></small>
                     </div>
                 </div>
                 <?php endif; ?>
                 
-                <?php if ($loan['status'] === 'REJECTED' && $loan['rejection_reason']): ?>
+                <?php if (strtolower($loan['status'] ?? '') === 'rejected' && !empty($loan['rejection_reason'])): ?>
                 <div class="alert alert-danger mt-3 mb-0">
                     <strong>Rejection Reason:</strong> <?php echo htmlspecialchars($loan['rejection_reason']); ?>
                 </div>
@@ -287,19 +310,24 @@ require_once '../../includes/header.php';
                 
                 <div class="mt-3 pt-3 border-top d-flex justify-content-between">
                     <div>
-                        <a href="view.php?id=<?php echo $loan['loan_id']; ?>" class="btn btn-outline-primary btn-sm">
+                        <a href="view.php?id=<?php echo htmlspecialchars($loan['loan_id']); ?>" class="btn btn-outline-primary btn-sm">
                             <i class="fas fa-eye me-1"></i>View Details
                         </a>
-                        <?php if (in_array(strtolower($loan['status']), ['disbursed', 'active'])): ?>
-                        <a href="view.php?id=<?php echo $loan['loan_id']; ?>" class="btn btn-outline-info btn-sm">
+                        <?php if (strtolower($loan['status'] ?? '') === 'pending'): ?>
+                        <a href="edit.php?id=<?php echo htmlspecialchars($loan['loan_id']); ?>" class="btn btn-outline-warning btn-sm">
+                            <i class="fas fa-edit me-1"></i>Edit
+                        </a>
+                        <?php endif; ?>
+                        <?php if (in_array(strtolower($loan['status'] ?? ''), ['disbursed', 'active'])): ?>
+                        <a href="view.php?id=<?php echo htmlspecialchars($loan['loan_id']); ?>" class="btn btn-outline-info btn-sm">
                             <i class="fas fa-calendar me-1"></i>View Schedule
                         </a>
                         <?php endif; ?>
                     </div>
-                    <?php if (strtolower($loan['status']) === 'pending'): ?>
+                    <?php if (strtolower($loan['status'] ?? '') === 'pending'): ?>
                     <form method="POST" action="process.php" onsubmit="return confirm('Cancel this loan application?');">
                         <input type="hidden" name="action" value="cancel">
-                        <input type="hidden" name="loan_id" value="<?php echo $loan['loan_id']; ?>">
+                        <input type="hidden" name="loan_id" value="<?php echo htmlspecialchars($loan['loan_id']); ?>">
                         <input type="hidden" name="redirect" value="my-loans.php">
                         <button type="submit" class="btn btn-outline-danger btn-sm">
                             <i class="fas fa-times me-1"></i>Cancel Application
@@ -312,7 +340,7 @@ require_once '../../includes/header.php';
             <?php endif; ?>
 
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <?php require_once '../../includes/footer.php'; ?>

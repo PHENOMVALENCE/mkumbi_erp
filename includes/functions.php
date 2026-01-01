@@ -126,6 +126,89 @@ function getEmployeeByUserId($conn, $user_id, $company_id = null) {
 }
 
 /**
+ * Get or create employee record for super admin
+ * @param PDO $conn Database connection
+ * @param int $user_id User ID
+ * @param int $company_id Company ID
+ * @return array|false Employee data or false if not found and not super admin
+ */
+function getOrCreateEmployeeForSuperAdmin($conn, $user_id, $company_id) {
+    $employee = getEmployeeByUserId($conn, $user_id, $company_id);
+    
+    if ($employee) {
+        return $employee;
+    }
+    
+    // Check if user is super admin
+    $sql = "SELECT is_super_admin FROM users WHERE user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$user_id]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if (!$user || !$user['is_super_admin']) {
+        return false;
+    }
+    
+    // Create a minimal employee record for super admin
+    try {
+        $conn->beginTransaction();
+        
+        // Check if employee number already exists, generate unique one
+        $employee_number = 'SA-' . str_pad($user_id, 6, '0', STR_PAD_LEFT);
+        $check_sql = "SELECT COUNT(*) as count FROM employees WHERE employee_number = ?";
+        $check_stmt = $conn->prepare($check_sql);
+        $check_stmt->execute([$employee_number]);
+        $exists = $check_stmt->fetch(PDO::FETCH_ASSOC)['count'];
+        
+        if ($exists > 0) {
+            // If exists, append timestamp
+            $employee_number = 'SA-' . str_pad($user_id, 6, '0', STR_PAD_LEFT) . '-' . time();
+        }
+        
+        // Create employee record for super admin
+        $insert_employee_sql = "INSERT INTO employees 
+            (company_id, user_id, employee_number, hire_date, employment_status, is_active, created_at)
+            VALUES (?, ?, ?, CURDATE(), 'active', 1, NOW())";
+        
+        $insert_stmt = $conn->prepare($insert_employee_sql);
+        $insert_stmt->execute([$company_id, $user_id, $employee_number]);
+        
+        $conn->commit();
+        
+        // Get the created employee record
+        return getEmployeeByUserId($conn, $user_id, $company_id);
+    } catch (PDOException $e) {
+        if ($conn->inTransaction()) {
+            $conn->rollBack();
+        }
+        error_log("Error creating employee record for super admin: " . $e->getMessage());
+        return false;
+    } catch (Exception $e) {
+        if ($conn->inTransaction()) {
+            $conn->rollBack();
+        }
+        error_log("Error creating employee record for super admin: " . $e->getMessage());
+        return false;
+    }
+}
+
+/**
+ * Check if user is an admin (COMPANY_ADMIN or SUPER_ADMIN)
+ * Note: Super admin leaves are managed by management, same as admin leaves
+ */
+function isAdmin($conn, $user_id) {
+    return hasPermission($conn, $user_id, ['COMPANY_ADMIN', 'SUPER_ADMIN']);
+}
+
+/**
+ * Check if user is management (MANAGER or SUPER_ADMIN)
+ * Management can approve/reject admin and super admin leaves
+ */
+function isManagement($conn, $user_id) {
+    return hasPermission($conn, $user_id, ['MANAGER', 'SUPER_ADMIN']);
+}
+
+/**
  * Send notification (placeholder for email/SMS integration)
  */
 function sendNotification($type, $recipient, $subject, $message, $data = []) {
